@@ -1,0 +1,1620 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://videoindex.github.io/sdk/05-indexing-pipeline/">
+      
+      
+        <link rel="prev" href="../04-data-model/">
+      
+      
+        <link rel="next" href="../06-query-and-agents/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Indexing pipeline - VideoIndex SDK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#05-indexing-pipeline" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VideoIndex SDK" class="md-header__button md-logo" aria-label="VideoIndex SDK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VideoIndex SDK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Indexing pipeline
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/videoindex/videoindex" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    videoindex/videoindex
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VideoIndex SDK" class="md-nav__button md-logo" aria-label="VideoIndex SDK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VideoIndex SDK
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/videoindex/videoindex" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    videoindex/videoindex
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP API and MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-rust-boundary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rust boundary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indexing pipeline
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indexing pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acquire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acquire
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Probe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demux-and-decode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Demux and decode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audio-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audio operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#video-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Video operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coarse-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coarse complete
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scene-and-chapter-grouping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scene and chapter grouping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlm-describe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VLM describe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entities-and-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entities and events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text embeddings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operator-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operator contract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#budgets-and-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budgets and policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive indexing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-query-and-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query and agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-model-providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model providers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-sdk-and-apis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SDK and APIs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Results
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Results
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M1-REPORT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M1 report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lvbench-f0.25-2026-09-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVBench sample
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lvbench-pilot-2026-09-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVBench pilot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DECISIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acquire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acquire
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Probe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demux-and-decode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Demux and decode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audio-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audio operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#video-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Video operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coarse-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coarse complete
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scene-and-chapter-grouping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scene and chapter grouping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlm-describe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VLM describe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entities-and-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entities and events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text embeddings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operator-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operator contract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#budgets-and-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budgets and policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive indexing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="05-indexing-pipeline">05. Indexing pipeline<a class="headerlink" href="#05-indexing-pipeline" title="Permanent link">&para;</a></h1>
+<p>Indexing turns a Source into a populated Index. It is a DAG of typed Operators run by a scheduler under a budget, with every output checkpointed and cached.</p>
+<h2 id="stages">Stages<a class="headerlink" href="#stages" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    A["Acquire"] --&gt; P["Probe"] --&gt; D["Demux / Decode"]
+    D --&gt; AU["Audio: VAD → ASR"]
+    D --&gt; VI["Video: sample → shots → dedup → image embed → OCR"]
+    AU &amp; VI --&gt; C["Coarse complete: queries open"]
+    C --&gt; SC["Scenes &amp; chapters"] --&gt; VLM["VLM describe (grids)"] --&gt; EX["Entities &amp; events (LLM)"] --&gt; TE["Text embeddings"] --&gt; F["Fine complete"]</code></pre>
+<h3 id="acquire">Acquire<a class="headerlink" href="#acquire" title="Permanent link">&para;</a></h3>
+<p>The <code>Acquirer</code> trait resolves a Source to a local, seekable media file plus metadata.</p>
+<table>
+<thead>
+<tr>
+<th>Acquirer</th>
+<th>Handles</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LocalFile</code></td>
+<td>paths</td>
+<td>Zero-copy open</td>
+</tr>
+<tr>
+<td><code>ObjectStore</code></td>
+<td><code>s3://</code>, <code>gs://</code>, <code>r2://</code>, <code>az://</code></td>
+<td>Via the <code>object_store</code> crate. Ranged reads allow probing without full download; full download for decode.</td>
+</tr>
+<tr>
+<td><code>Http</code></td>
+<td><code>https://…/file.mp4</code></td>
+<td>Size and time limits, resumable, private-range blocked</td>
+</tr>
+<tr>
+<td><code>YtDlp</code></td>
+<td>YouTube, playlists, other sites yt-dlp supports</td>
+<td>Shells out to <code>yt-dlp</code> with a fixed argument list: best video up to 720p plus best audio, merge to MP4, write <code>.info.json</code>, subtitles and auto-captions if present, download archive for idempotence. Playlists expand into one Source per entry. Absence of yt-dlp is a clear error with install hint. YouTube blocks most datacenter IPs, so on servers the usual path is files downloaded elsewhere and transferred; <code>LocalFile</code> imports the yt-dlp <code>.info.json</code> and subtitle sidecars next to a file so those transfers keep title, chapters, and captions.</td>
+</tr>
+</tbody>
+</table>
+<p>Acquired media lands in a content-addressed media cache (<code>/data/videoindex/videos/&lt;hash&gt;.mp4</code> on servers; a configurable directory locally). Existing subtitles from acquisition are imported as a <code>subtitle</code> Track and can seed the transcript, saving ASR cost when they are human-authored.</p>
+<h3 id="probe">Probe<a class="headerlink" href="#probe" title="Permanent link">&para;</a></h3>
+<p>libav-based probe: duration, streams, codecs, frame rate, resolution, keyframe interval estimate, chapter markers, embedded metadata. Stored on the Video record. Decides the decode plan (hardware or software, target sampling rate, whether audio exists).</p>
+<h3 id="demux-and-decode">Demux and decode<a class="headerlink" href="#demux-and-decode" title="Permanent link">&para;</a></h3>
+<p>Runs in the sandboxed <code>vi-media</code> worker. Two independent streams:</p>
+<ul>
+<li><strong>Audio</strong>: decoded and resampled to 16 kHz mono PCM, chunked at 30 s with 1 s overlap, aligned to VAD boundaries when available.</li>
+<li><strong>Video</strong>: decoded at a sampling policy's rate (default 1 fps for the coarse pass), keyframe-aligned seeking so scrubbing an hour does not decode the full stream. Frames are delivered as <code>Arc&lt;FrameBuffer&gt;</code> (RGB24 or NV12) with PTS.</li>
+</ul>
+<p>Hardware decode is auto-detected: VideoToolbox, NVDEC, VAAPI, else software. Decoding falls back to software on any hardware error for that job.</p>
+<h3 id="audio-operators">Audio operators<a class="headerlink" href="#audio-operators" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Where</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Vad</code></td>
+<td>in-process (Silero via ONNX)</td>
+<td>speech ranges</td>
+</tr>
+<tr>
+<td><code>Asr</code></td>
+<td>provider (Whisper via OpenAI-compatible or local server, Gemini, Deepgram-style)</td>
+<td>TranscriptSpans with word timings when the provider gives them</td>
+</tr>
+<tr>
+<td><code>Diarize</code></td>
+<td>provider, optional</td>
+<td>speaker labels on spans</td>
+</tr>
+</tbody>
+</table>
+<p>Only speech ranges are sent to ASR. An hour of lecture with 40 minutes of speech costs 40 minutes of ASR. <code>Vad</code> decodes the whole track, scores it in one batched pass, merges speech across pauses under <code>models.vad.min_silence_ms</code>, drops runs under <code>min_speech_ms</code>, pads by <code>pad_ms</code>, and splits runs longer than <code>max_segment_secs</code> at their quietest window. Each <code>SpeechRange</code> item carries its PCM so <code>Asr</code> never re-decodes. <code>Asr</code> sends <code>models.asr.concurrency</code> requests at a time through the <code>asr</code> role, splits the returned segments on word timings into spans of about <code>span_secs</code>, and writes one <code>Provenance</code> row per request.</p>
+<h3 id="video-operators">Video operators<a class="headerlink" href="#video-operators" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Where</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Sample</code></td>
+<td>in-process</td>
+<td>FrameSamples at policy rate</td>
+</tr>
+<tr>
+<td><code>ShotBoundary</code></td>
+<td>in-process (HSV histogram distance + edge change ratio, adaptive threshold)</td>
+<td>shot Segments</td>
+</tr>
+<tr>
+<td><code>PHash</code></td>
+<td>in-process</td>
+<td>64-bit perceptual hash per FrameSample; consecutive frames within Hamming distance 6 collapse for downstream operators</td>
+</tr>
+<tr>
+<td><code>ImageEmbed</code></td>
+<td>in-process (SigLIP or CLIP via ONNX) or provider</td>
+<td>Embeddings for distinct FrameSamples</td>
+</tr>
+<tr>
+<td><code>Ocr</code></td>
+<td>provider (VLM with OCR prompt, PaddleOCR sidecar, cloud OCR) or in-process (RapidOCR ONNX)</td>
+<td>OcrSpans for distinct frames whose text-likelihood heuristic fires</td>
+</tr>
+<tr>
+<td><code>Thumbnail</code></td>
+<td>in-process</td>
+<td>WebP thumbnail per FrameSample at 320 px</td>
+</tr>
+</tbody>
+</table>
+<h3 id="coarse-complete">Coarse complete<a class="headerlink" href="#coarse-complete" title="Permanent link">&para;</a></h3>
+<p>Once the audio and video operators above finish, the Video is marked <code>coarse</code>. Transcript search, OCR search, image-embedding search, and shot navigation all work. For lectures and talks, most questions are answerable here without a VLM.</p>
+<h3 id="scene-and-chapter-grouping">Scene and chapter grouping<a class="headerlink" href="#scene-and-chapter-grouping" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Scenes</strong>: shots grouped by image-embedding similarity and transcript continuity, targeting 20 s to 3 min.</li>
+<li><strong>Chapters</strong>: from container chapter markers or yt-dlp chapters when present; otherwise topic segmentation over the transcript (TextTiling-style over sentence embeddings) combined with slide-title OCR changes.</li>
+</ul>
+<h3 id="vlm-describe">VLM describe<a class="headerlink" href="#vlm-describe" title="Permanent link">&para;</a></h3>
+<p>For each scene, compose a frame grid (default 3×3 of dedup'd keyframes with timestamp labels) and ask the VLM for a structured description: what is shown, on-screen text, people or objects, actions, and a one-line summary. Providers with native video input receive the clip directly instead of a grid, controlled by capability negotiation in <a href="../07-model-providers/">07-model-providers</a>. The transcript for the scene is included in the prompt as labeled data so the description is grounded in speech.</p>
+<p>Default budget: one VLM call per scene. Policies can request denser coverage for sections with high visual change or on demand from a query.</p>
+<h3 id="entities-and-events">Entities and events<a class="headerlink" href="#entities-and-events" title="Permanent link">&para;</a></h3>
+<p>An LLM operator reads scene descriptions plus transcript in sliding windows and emits Entities, EntityMentions, and Events with time ranges. Entities are canonicalized across the video by name and embedding similarity.</p>
+<h3 id="text-embeddings">Text embeddings<a class="headerlink" href="#text-embeddings" title="Permanent link">&para;</a></h3>
+<p>All TranscriptSpans, OcrSpans, Descriptions, and Segment summaries are embedded with the configured text embedding model. Spans are embedded in windows of roughly 30 s with overlap so retrieval hits carry enough context.</p>
+<h2 id="operator-contract">Operator contract<a class="headerlink" href="#operator-contract" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="cp">#[async_trait]</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="n">Operator</span><span class="p">:</span><span class="w"> </span><span class="nb">Send</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Sync</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kp">&amp;</span><span class="o">'</span><span class="nb">static</span><span class="w"> </span><span class="kt">str</span><span class="p">;</span><span class="w">           </span><span class="c1">// e.g. "shot_boundary"; also the stage name in checkpoints</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">version</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">u32</span><span class="p">;</span><span class="w">               </span><span class="c1">// bump when output semantics change</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">inputs</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kp">&amp;</span><span class="p">[</span><span class="n">InputKind</span><span class="p">];</span><span class="w">       </span><span class="c1">// what it consumes</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">outputs</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kp">&amp;</span><span class="p">[</span><span class="n">OutputKind</span><span class="p">];</span><span class="w">     </span><span class="c1">// what it produces</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">cost_estimate</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">InputSummary</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">CostEstimate</span><span class="p">;</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">OpContext</span><span class="p">,</span><span class="w"> </span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="nc">OpInput</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="n">OpOutput</span><span class="o">&gt;</span><span class="p">;</span><span class="w">   </span><span class="c1">// one input item per call</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">finish</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">OpContext</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="n">OpOutput</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">Ok</span><span class="p">(</span><span class="nb">Default</span><span class="p">::</span><span class="n">default</span><span class="p">())</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// after the last input</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The scheduler derives the DAG from <code>inputs</code> and <code>outputs</code>. Adding an operator never requires editing the scheduler. <code>OpContext</code> gives access to providers, storage and the blob store, the budget, a cancellation token, progress reporting, and <code>emit</code>: operators stream each output item through <code>ctx.emit(item)</code> rather than returning a <code>Vec</code>, so an hour of frames never sits in memory and backpressure from bounded channels reaches the decoder. <code>finish</code> runs once after the last input so operators can flush batched storage writes. Input kinds are one enum (<code>ItemKind</code>: <code>Media</code>, <code>Frame</code>, <code>Hashed</code>, <code>Thumbnail</code>, <code>AudioChunk</code>, ...); every job starts by feeding the single <code>Media</code> item to the operators that declare it as input.</p>
+<h2 id="scheduler">Scheduler<a class="headerlink" href="#scheduler" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Builds the DAG for a job from the chosen <code>IndexPolicy</code> (which operators, which providers, sampling rates).</li>
+<li>Runs operators as tokio tasks, with CPU-bound ones dispatched to the rayon pool and decode to the worker process.</li>
+<li>Bounded channels between operators provide backpressure; at most N frames are in flight per job. N is the decode worker's shared-memory slot count (<code>media.worker.max_in_flight_frames</code>), and channel capacities are derived from it so a slow consumer stalls the decoder instead of deadlocking it.</li>
+<li>Provider calls go through per-provider semaphores and rate limiters. Batched where the provider supports it.</li>
+<li>Every operator output is written to storage and the job checkpoint (<code>jobs/&lt;job-id&gt;.json</code>) is updated when a stage starts, finishes, or fails. A completed stage also leaves a marker in the operator output cache (below). Re-running a job plans each stage as <em>skip</em> (cached, no running consumer needs its items), <em>replay</em> (cached, a consumer needs its items and the operator can re-emit them from storage), or <em>run</em> (not cached, or a producer runs and so its inputs changed). <code>sample</code> cannot replay, so anything that <em>runs</em> and needs frames re-decodes; text stages (<code>subtitle_import</code>, <code>asr</code>, <code>ocr</code>) and <code>shot_boundary</code> replay, and a replaying stage does not make its own producers run (a fine pass over a coarse index touches no pixels). A job killed while a stage was re-writing its rows leaves that stage's marker in place over partial rows; re-run that video with <code>--force</code>.</li>
+<li>Cancellation propagates through the DAG in under a second; partial results remain queryable.</li>
+<li>Emits <code>Progress</code> events: stage, fraction complete, cost so far, ETA.</li>
+</ul>
+<h2 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">&para;</a></h2>
+<p>Operator outputs are cached under a key of <code>(input content hash, operator id, operator version, provider, model, model version, prompt hash, params hash)</code>; in the embedded backend the outputs are the index rows themselves and the cache is a marker file per key under <code>cache/operators/</code>. Consequences:</p>
+<ul>
+<li>Re-running with a different VLM re-runs only the VLM stage and downstream stages that depend on it.</li>
+<li>Two Videos with identical content share every cached output.</li>
+<li>The eval harness can sweep providers over the same 100 hours of video without re-decoding anything.</li>
+</ul>
+<h2 id="budgets-and-policies">Budgets and policies<a class="headerlink" href="#budgets-and-policies" title="Permanent link">&para;</a></h2>
+<p>An <code>IndexPolicy</code> is a named configuration:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[policy.lecture_default]</span>
+<span class="n">sample_fps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="n">coarse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"subtitle_import"</span><span class="p">,</span><span class="w"> </span><span class="s2">"vad"</span><span class="p">,</span><span class="w"> </span><span class="s2">"asr"</span><span class="p">,</span><span class="w"> </span><span class="s2">"sample"</span><span class="p">,</span><span class="w"> </span><span class="s2">"shot_boundary"</span><span class="p">,</span><span class="w"> </span><span class="s2">"phash"</span><span class="p">,</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w"> </span><span class="s2">"image_embed"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ocr"</span><span class="p">,</span><span class="w"> </span><span class="s2">"text_embed"</span><span class="p">]</span>
+<span class="n">fine</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"scenes"</span><span class="p">,</span><span class="w"> </span><span class="s2">"chapters"</span><span class="p">,</span><span class="w"> </span><span class="s2">"vlm_describe"</span><span class="p">,</span><span class="w"> </span><span class="s2">"entities_events"</span><span class="p">]</span>
+<span class="n">vlm_grid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"3x3"</span>
+<span class="n">max_cost_usd_per_hour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span>
+<span class="n">max_wallclock_per_hour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"20m"</span>
+
+<span class="k">[policy.coarse_only]</span>
+<span class="n">fine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+</code></pre></div>
+<p><code>default_policy = "auto"</code> (the default) picks <code>coarse_only</code> when the <code>asr</code>, <code>ocr</code>, <code>image_embed</code> and <code>text_embed</code> roles are bound and <code>coarse_local</code> (no provider-backed operators) otherwise. <code>text_embed</code> sits in the coarse pass because hybrid search needs span vectors; the fine pass adds the VLM and LLM stages in M2.</p>
+<p>When a budget is exhausted the job stops issuing new provider calls, finishes writing what it has, marks the Video with the reached state, and reports which stages were skipped. <code>max_wallclock_per_hour</code> accepts <code>20m</code>, <code>1h30m</code>, <code>90s</code>; <code>0</code> for either limit means unlimited. The ceiling is the per-hour figure times the video's duration in hours (at least one minute's worth).</p>
+<h2 id="progressive-indexing">Progressive indexing<a class="headerlink" href="#progressive-indexing" title="Permanent link">&para;</a></h2>
+<p>Indexing and querying can overlap. A query against a Video in <code>coarse</code> state uses what exists and reports the index state in its response so the caller can decide to wait, proceed, or trigger a targeted fine pass for the segments the query touched. The agent's <code>describe(t0, t1)</code> tool is exactly such a targeted fine pass: it runs the VLM operator for one range and stores the result, so the index improves with use.</p>
+<h2 id="failure-handling">Failure handling<a class="headerlink" href="#failure-handling" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Corrupt or truncated media: probe reports what is decodable; indexing proceeds over the readable range and records the gap.</li>
+<li>Provider errors: retried with backoff and jitter; after the retry budget, the operator marks the affected inputs as <code>failed</code> with the error and the job continues. A summary lists failed ranges.</li>
+<li>Worker crash: the job restarts the worker and resumes from checkpoint; three crashes on the same range mark that range failed.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "content.code.copy", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

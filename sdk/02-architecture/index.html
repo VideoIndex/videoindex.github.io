@@ -8,29 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://videoindex.github.io/">
+        <link rel="canonical" href="https://videoindex.github.io/sdk/02-architecture/">
       
       
+        <link rel="prev" href="../01-overview/">
       
-        <link rel="next" href="quickstart/">
+      
+        <link rel="next" href="../03-rust-boundary/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>VideoIndex SDK</title>
+        <title>Architecture - VideoIndex SDK</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#videoindex" class="md-skip">
+        <a href="#02-architecture" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="VideoIndex SDK" class="md-header__button md-logo" aria-label="VideoIndex SDK" data-md-component="logo">
+    <a href="../.." title="VideoIndex SDK" class="md-header__button md-logo" aria-label="VideoIndex SDK" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Architecture
             
           </span>
         </div>
@@ -214,7 +216,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="VideoIndex SDK" class="md-nav__button md-logo" aria-label="VideoIndex SDK" data-md-component="logo">
+    <a href="../.." title="VideoIndex SDK" class="md-nav__button md-logo" aria-label="VideoIndex SDK" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -241,19 +243,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -269,7 +262,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -281,7 +273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="quickstart/" class="md-nav__link">
+      <a href="../../quickstart/" class="md-nav__link">
         
   
   
@@ -308,7 +300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/" class="md-nav__link">
+      <a href="../../api/" class="md-nav__link">
         
   
   
@@ -335,7 +327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="python/" class="md-nav__link">
+      <a href="../../python/" class="md-nav__link">
         
   
   
@@ -359,8 +351,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -371,11 +365,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -396,7 +390,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -414,7 +408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/01-overview/" class="md-nav__link">
+      <a href="../01-overview/" class="md-nav__link">
         
   
   
@@ -439,10 +433,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="sdk/02-architecture/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -458,6 +479,103 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cargo-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cargo workspace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing-data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indexing data flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query data flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Process model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concurrency-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrency model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-shapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment shapes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -470,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/03-rust-boundary/" class="md-nav__link">
+      <a href="../03-rust-boundary/" class="md-nav__link">
         
   
   
@@ -498,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/04-data-model/" class="md-nav__link">
+      <a href="../04-data-model/" class="md-nav__link">
         
   
   
@@ -526,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/05-indexing-pipeline/" class="md-nav__link">
+      <a href="../05-indexing-pipeline/" class="md-nav__link">
         
   
   
@@ -554,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/06-query-and-agents/" class="md-nav__link">
+      <a href="../06-query-and-agents/" class="md-nav__link">
         
   
   
@@ -582,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/07-model-providers/" class="md-nav__link">
+      <a href="../07-model-providers/" class="md-nav__link">
         
   
   
@@ -610,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/08-evaluation/" class="md-nav__link">
+      <a href="../08-evaluation/" class="md-nav__link">
         
   
   
@@ -638,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/09-sdk-and-apis/" class="md-nav__link">
+      <a href="../09-sdk-and-apis/" class="md-nav__link">
         
   
   
@@ -666,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/10-roadmap/" class="md-nav__link">
+      <a href="../10-roadmap/" class="md-nav__link">
         
   
   
@@ -694,7 +812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/11-deployment/" class="md-nav__link">
+      <a href="../11-deployment/" class="md-nav__link">
         
   
   
@@ -781,7 +899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/M1-REPORT/" class="md-nav__link">
+      <a href="../M1-REPORT/" class="md-nav__link">
         
   
   
@@ -809,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="results/lvbench-f0.25-2026-09-12/" class="md-nav__link">
+      <a href="../../results/lvbench-f0.25-2026-09-12/" class="md-nav__link">
         
   
   
@@ -837,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="results/lvbench-pilot-2026-09-12/" class="md-nav__link">
+      <a href="../../results/lvbench-pilot-2026-09-12/" class="md-nav__link">
         
   
   
@@ -865,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/DECISIONS/" class="md-nav__link">
+      <a href="../DECISIONS/" class="md-nav__link">
         
   
   
@@ -913,6 +1031,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cargo-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cargo workspace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing-data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indexing data flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query data flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Process model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concurrency-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrency model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-shapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment shapes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -931,18 +1134,175 @@
   
 
 
-<h1 id="videoindex">VideoIndex<a class="headerlink" href="#videoindex" title="Permanent link">&para;</a></h1>
-<p>VideoIndex turns long videos into a queryable knowledge base. Index a video once
-(decode, transcribe, read on-screen text, embed frames and text, detect shots and
-scenes) and ask questions that come back with the exact moment cited.</p>
+<h1 id="02-architecture">02. Architecture<a class="headerlink" href="#02-architecture" title="Permanent link">&para;</a></h1>
+<h2 id="layers">Layers<a class="headerlink" href="#layers" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart TB
+    subgraph Apps["Applications (outside the SDK)"]
+        Chat["Video QnA chat app"]
+        Agents["External agents via MCP"]
+        Notebooks["Eval harness, notebooks"]
+    end
+
+    subgraph Surface["SDK surface"]
+        Py["Python (PyO3)"]
+        Node["Node.js (napi-rs)"]
+        CLI["vi CLI"]
+        Server["vi-server: HTTP, SSE, WebSocket, MCP"]
+    end
+
+    subgraph Core["Rust core"]
+        Agent["vi-agent: agentic loop, budgets, policies"]
+        Query["vi-query: hybrid retrieval, temporal fusion, tools"]
+        Pipeline["vi-pipeline: operator DAG, scheduler, checkpoints"]
+        Perceive["vi-perceive: shot detection, VAD, embeddings (in-process)"]
+        Providers["vi-providers: VLM, ASR, OCR, embed, LLM adapters"]
+        Media["vi-media: acquire, demux, decode, seek, sample"]
+        Index["vi-index: storage trait, embedded backend, blob cache"]
+        CoreTypes["vi-core: types, time, config, events, errors"]
+    end
+
+    subgraph External["External"]
+        FF["ffmpeg libav (sandboxed)"]
+        ONNX["ONNX Runtime / candle"]
+        APIs["Gemini, Claude, OpenAI, vLLM, Ollama"]
+        Store["SQLite + Lance | Postgres + pgvector | Qdrant | S3"]
+    end
+
+    Apps --&gt; Surface --&gt; Agent &amp; Query &amp; Pipeline
+    Agent --&gt; Query --&gt; Index
+    Agent --&gt; Providers
+    Pipeline --&gt; Media &amp; Perceive &amp; Providers &amp; Index
+    Media --&gt; FF
+    Perceive --&gt; ONNX
+    Providers --&gt; APIs
+    Index --&gt; Store
+    Core --&gt; CoreTypes</code></pre>
+<p>Dependencies point downward only. <code>vi-core</code> has no dependency on any other crate. Nothing in <code>Core</code> knows about Python, Node, or HTTP.</p>
+<h2 id="cargo-workspace">Cargo workspace<a class="headerlink" href="#cargo-workspace" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>videoindex/
+  Cargo.toml                 workspace
+  crates/
+    vi-core/                 shared types, time model, config, events, errors
+    vi-media/                acquirers, ffmpeg demux/decode, hardware decode, seeking, sampling, tiling
+    vi-perceive/             in-process operators: shot boundary, pHash, VAD, image/text embeddings
+    vi-providers/            provider traits + adapters, rate limiting, retries, cost accounting
+    vi-index/                storage trait, embedded backend (SQLite+FTS5, Lance/usearch), blob cache
+    vi-pipeline/             operator DAG, scheduler, checkpoints, progress, caching
+    vi-query/                retrieval, temporal fusion, tool primitives
+    vi-agent/                default agentic loop, budgets, policy trait
+    vi-server/               axum HTTP/SSE/WebSocket API, MCP server
+    vi-cli/                  `vi` binary
+    vi-testkit/              test fixtures (synthetic video generated by ffmpeg at build time); dev-dependency only
+  bindings/
+    python/                  PyO3 + maturin -&gt; `videoindex` wheel
+    node/                    napi-rs -&gt; `@videoindex/core` package
+  eval/                      Python: benchmark loaders, runners, reports
+  apps/
+    chat/                    demo QnA app (separate deployable, consumes SDK)
+    site/                    videoindex.app SDK site (later)
+  docs/
+  dataset/
+  scripts/
+</code></pre></div>
+<p>Crate responsibilities are described in the documents that follow. The one-line rule for placing code: if it needs frames, threads, storage, or sockets it goes in a <code>vi-*</code> crate. If it is a prompt, a policy, or an experiment it can start in Python and be ported to Rust once it stabilizes.</p>
+<h2 id="indexing-data-flow">Indexing data flow<a class="headerlink" href="#indexing-data-flow" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>sequenceDiagram
+    participant U as User / SDK
+    participant P as vi-pipeline
+    participant M as vi-media
+    participant PE as vi-perceive
+    participant PR as vi-providers
+    participant I as vi-index
+
+    U-&gt;&gt;P: index(source, policy, budget)
+    P-&gt;&gt;M: acquire(source)  // download or open
+    M--&gt;&gt;P: local media handle + probe (duration, streams, codec)
+    P-&gt;&gt;I: create Video, Tracks
+    P-&gt;&gt;M: decode audio
+    M--&gt;&gt;P: 16 kHz mono chunks
+    P-&gt;&gt;PE: VAD
+    P-&gt;&gt;PR: ASR(speech chunks)
+    PR--&gt;&gt;I: TranscriptSpans
+    P-&gt;&gt;M: decode video at 1 fps (keyframe-aligned)
+    M--&gt;&gt;P: FrameSamples
+    P-&gt;&gt;PE: shot boundaries, pHash dedup, image embeddings
+    PE--&gt;&gt;I: Segments(shot), Embeddings
+    P-&gt;&gt;PR: OCR(distinct frames)
+    PR--&gt;&gt;I: OcrSpans
+    P-&gt;&gt;I: mark coarse pass complete  // queries now work
+    P-&gt;&gt;PR: VLM describe(scene segments, frame grids)
+    PR--&gt;&gt;I: Descriptions, Entities, Events
+    P-&gt;&gt;PR: text embeddings(spans, descriptions)
+    PR--&gt;&gt;I: Embeddings
+    P-&gt;&gt;I: mark fine pass complete
+    P--&gt;&gt;U: progress events throughout, final summary</code></pre>
+<p>The pipeline is a DAG of operators, not a fixed sequence. The sequence above shows the default policy. Each arrow into <code>vi-index</code> is checkpointed, so a killed job resumes.</p>
+<h2 id="query-data-flow">Query data flow<a class="headerlink" href="#query-data-flow" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>sequenceDiagram
+    participant U as User / SDK
+    participant A as vi-agent
+    participant Q as vi-query
+    participant I as vi-index
+    participant M as vi-media
+    participant PR as vi-providers
+
+    U-&gt;&gt;A: ask(question, budget)
+    A-&gt;&gt;Q: search(question)  // hybrid: vector + BM25 + temporal
+    Q-&gt;&gt;I: query spans, descriptions, segments
+    I--&gt;&gt;Q: ranked hits with timestamps
+    Q--&gt;&gt;A: candidate segments
+    A-&gt;&gt;PR: LLM decides: answer now or look closer?
+    alt needs pixels
+        A-&gt;&gt;M: view(t0, t1, fps, res)  // decode on demand
+        M--&gt;&gt;A: frame grid
+        A-&gt;&gt;PR: VLM(frame grid + question)
+        PR--&gt;&gt;A: observation
+    end
+    A-&gt;&gt;PR: LLM compose answer with citations
+    A--&gt;&gt;U: streamed tokens + citations [t=HH:MM:SS]</code></pre>
+<p>Retrieval is always tried first because it is cheap and cached. Decoding and VLM calls happen only when the agent decides the index does not contain the answer, and only within budget.</p>
+<h2 id="process-model">Process model<a class="headerlink" href="#process-model" title="Permanent link">&para;</a></h2>
+<p>VideoIndex runs in three shapes from the same crates:</p>
+<table>
+<thead>
+<tr>
+<th>Shape</th>
+<th>Entry</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Library</strong></td>
+<td>Python or Node binding</td>
+<td>Embedded in a user's process. Pipeline and query run in the binding's tokio runtime, off the GIL / event loop.</td>
+</tr>
+<tr>
+<td><strong>CLI</strong></td>
+<td><code>vi</code></td>
+<td>Batch indexing, scripting, eval.</td>
+</tr>
+<tr>
+<td><strong>Server</strong></td>
+<td><code>vi-server</code></td>
+<td>Hosted or shared deployments. HTTP + SSE for answers, WebSocket for progress, MCP for agents. Multi-index, auth, quotas.</td>
+</tr>
+</tbody>
+</table>
+<p>Decoding of untrusted media always runs in a child process (<code>vi-media</code> worker) with resource limits, regardless of shape. See <a href="../03-rust-boundary/#security">03-rust-boundary</a>.</p>
+<h2 id="concurrency-model">Concurrency model<a class="headerlink" href="#concurrency-model" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Rust core</strong>, sandboxed media decoding, ONNX models on CPU or GPU.</li>
-<li><strong>Python</strong> binding with operators and agent policies written in Python.</li>
-<li><strong>HTTP API, SSE and MCP</strong> server (<code>vi serve</code>), so any agent framework can use an index as a tool.</li>
-<li><strong>Provider-agnostic</strong>: OpenAI-compatible servers, Anthropic, Gemini, local ONNX.</li>
+<li>One tokio runtime per process. CPU-bound work (decode, embeddings, hashing) runs on a dedicated rayon pool or in the decode worker process; the async runtime never blocks.</li>
+<li>Provider calls are async with per-provider concurrency limits and token-bucket rate limits.</li>
+<li>Frames move as <code>Arc&lt;FrameBuffer&gt;</code> with a pixel format tag. No copies between decode, hashing, embedding, and tiling. Frames cross the Python boundary as NumPy arrays via the buffer protocol without a copy.</li>
+<li>Backpressure: the scheduler bounds in-flight frames per job so an hour of 4K video never sits in memory.</li>
 </ul>
-<p>Try the <a href="https://videoindex.app/chat">demo</a> over 36 hours of AI Engineer workshops and the
-Berkeley Agentic AI MOOC, or start with the <a href="quickstart/">quickstart</a>.</p>
+<h2 id="deployment-shapes">Deployment shapes<a class="headerlink" href="#deployment-shapes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Local</strong>: <code>pip install videoindex</code> or <code>npm install @videoindex/core</code>, index lives in a directory.</li>
+<li><strong>Self-hosted</strong>: <code>vi serve</code> behind a reverse proxy, indexes on local disk or object storage.</li>
+<li><strong>Hosted (videoindex.app)</strong>: <code>vi-server</code> with the pluggable storage backends, multi-tenant, quotas, keys. See <a href="../11-deployment/">11-deployment</a>.</li>
+</ul>
 
 
 
@@ -998,10 +1358,10 @@ Berkeley Agentic AI MOOC, or start with the <a href="quickstart/">quickstart</a>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.top", "content.code.copy", "search.suggest"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "content.code.copy", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

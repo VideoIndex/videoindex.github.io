@@ -1,0 +1,1077 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://videoindex.github.io/sdk/DECISIONS/">
+      
+      
+        <link rel="prev" href="../../results/lvbench-pilot-2026-09-12/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Decisions - VideoIndex SDK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#decisions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VideoIndex SDK" class="md-header__button md-logo" aria-label="VideoIndex SDK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VideoIndex SDK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Decisions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/videoindex/videoindex" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    videoindex/videoindex
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VideoIndex SDK" class="md-nav__button md-logo" aria-label="VideoIndex SDK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VideoIndex SDK
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/videoindex/videoindex" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    videoindex/videoindex
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP API and MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-rust-boundary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rust boundary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-indexing-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indexing pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-query-and-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query and agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-model-providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model providers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-sdk-and-apis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SDK and APIs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Results
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Results
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M1-REPORT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M1 report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lvbench-f0.25-2026-09-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVBench sample
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lvbench-pilot-2026-09-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVBench pilot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="decisions">Decisions<a class="headerlink" href="#decisions" title="Permanent link">&para;</a></h1>
+<p>One dated bullet per decision made where the design documents were silent or had to change. Newest at the bottom.</p>
+<ul>
+<li>2026-09-11: <code>/data</code> is a plain directory on the root filesystem (164 G free), not a separate volume. Neither existing disk has the 500 G the deployment doc plans for; a dedicated data disk is deferred until benchmark media (M4) needs it. The ephemeral <code>/mnt</code> disk is never used for media or indexes.</li>
+<li>2026-09-11: The M0 "under 5 minutes for a 1-hour MP4" target is measured on this machine's 4 vCPUs, not the 8 cores the docs assume. The number is recorded either way; if it misses on 4 cores the doc target is annotated rather than the machine upgraded.</li>
+<li>2026-09-11: The M0 timing test uses a synthetic 1-hour 720p H.264 file (ffmpeg <code>testsrc2</code>, 30 fps, GOP 150) because no real hour-long video exists on the machine yet and YouTube is blocked. Real dataset videos re-run the measurement once transferred.</li>
+<li>2026-09-11: yt-dlp is installed as the upstream standalone binary in <code>/usr/local/bin</code>, not the Ubuntu package (which is a year old and breaks against YouTube). It is only for <code>vi doctor</code> and the <code>YtDlp</code> acquirer on machines where YouTube is reachable.</li>
+<li>2026-09-11: nginx already runs on this machine for other sites and port 8080 is taken by another app. The deployment doc's Caddy-on-80/443 and <code>vi serve</code> on 8080 will be adjusted at M3 (nginx site + a free localhost port); <code>11-deployment.md</code> is updated when that work happens, not now.</li>
+<li>2026-09-11: libav is reached through <code>ffmpeg-next</code> 9.0, not <code>rsmpeg</code>. ffmpeg-next wraps contexts, frames, packets, scalers and resamplers in safe types, so <code>vi-media</code> holds almost no <code>unsafe</code> (only mmap and the pre-exec rlimit hook), and its build script detects any libav from 3.0 to 9.0 via pkg-config, which covers the distro ffmpeg 6.1 here and Homebrew's current ffmpeg on macOS CI without pinning. <code>rsmpeg</code> pins to one ffmpeg release and exposes a near-raw C API.</li>
+<li>2026-09-11: One decode worker process per request (probe, video decode, audio decode). Spawning costs a few milliseconds, each request is crash-isolated, and the client API stays trivial. A worker pool can be added behind the same <code>vi_media::client</code> functions when concurrency needs it.</li>
+<li>2026-09-11: Frames cross the worker boundary through file-backed shared memory (<code>/dev/shm</code> on Linux, temp dir elsewhere) divided into fixed-size slots. Slot ownership moves with protocol messages: the worker owns a slot until it announces <code>Frame{slot}</code>, the parent until the <code>Arc&lt;FrameBuffer&gt;</code> drops and sends <code>SlotFree</code>. The slot count (<code>media.worker.max_in_flight_frames</code>, default 16) is the per-job frame bound; pipeline channel capacities are derived from it so backpressure cannot deadlock.</li>
+<li>2026-09-11: Frames are scaled inside the worker to <code>media.sample_max_dim</code> (default 640 px longest side) before crossing to the parent. Nothing in the coarse pass needs more (pHash 32x32, thumbnails 320 px, SigLIP 384 px), and it cuts shared-memory traffic and swscale work roughly fourfold for 720p.</li>
+<li>2026-09-11: When the sampling rate is far below the source frame rate the decoder skips non-reference frames (<code>AVDISCARD_NONREF</code>). That is lossless for the frames kept and cut the 1-hour 720p decode from 259 s to 139 s on this CPU (ffmpeg CLI baseline; the worker measured 150 s). The sampled frame can land up to two frames after the target; its true PTS is stored. Per-target keyframe seeking is used only when the sampling interval is at least twice the keyframe interval. <code>skip_loop_filter</code> (a further ~15%) is left off to keep thumbnails clean.</li>
+<li>2026-09-11: Sandboxing in M0 is rlimits (address space, open files, no core dumps) plus <code>PR_SET_NO_NEW_PRIVS</code> on Linux, applied in a <code>pre_exec</code> hook. seccomp and macOS <code>sandbox-exec</code> are deferred; the process boundary and idle timeout already exist. <code>vi doctor</code> prints what is active.</li>
+<li>2026-09-11: The <code>Storage</code> trait gained methods the pipeline and CLI need beyond <code>04-data-model.md</code>: <code>get_video</code>, <code>find_video_by_hash</code>, <code>list_videos</code>, <code>set_index_state</code>, <code>put_tracks</code>/<code>tracks</code>, <code>put_frame_samples</code>, <code>update_frame_phash</code>, <code>update_frame_thumbnail</code>, <code>delete_frame_samples</code>, <code>frame_samples</code>, <code>put_embeddings</code>, <code>list_jobs</code>, <code>stats</code>. The doc is updated in the same commit.</li>
+<li>2026-09-11: Operators stream their outputs through <code>OpContext::emit</code> instead of returning them in <code>OpOutput</code>, and have a <code>finish</code> hook for flushing buffered writes. A <code>Vec</code> return would hold an hour of frames in memory and defeat the bounded-channel backpressure.</li>
+<li>2026-09-11: The vector store is a stub: <code>put_embeddings</code> records metadata rows in SQLite, vectors are dropped, <code>vector_search</code> returns nothing. Lance lands in M1 behind the same trait.</li>
+<li>2026-09-11: Video rows are keyed by media content hash: re-indexing the same bytes reuses the <code>VideoId</code>. Parent tables are upserted (<code>ON CONFLICT DO UPDATE</code>), never <code>INSERT OR REPLACE</code>, because REPLACE deletes the row and the <code>ON DELETE CASCADE</code> would wipe tracks and samples.</li>
+<li>2026-09-11: A built-in <code>m0</code> policy (<code>sample</code>, <code>phash</code>, <code>thumbnail</code>) is the default policy until M1 operators exist. Policies naming unimplemented operators (<code>vad</code>, <code>asr</code>, ...) fail with "not implemented yet" and exit code 6, distinct from typos (exit 2). After the <code>m0</code> policy the video is marked <code>coarse</code>: the state records that the policy's coarse pass finished, not that every coarse operator in the design ran.</li>
+<li>2026-09-11: <code>vi-testkit</code> is an extra workspace crate (not in the <code>02-architecture.md</code> layout) whose build script generates the 2-minute fixture with the <code>ffmpeg</code> CLI. It is a dev-dependency only, so building <code>vi</code> needs no ffmpeg binary. Solid-colour segments alone defeat pHash (constant luma has no DCT structure), so each segment carries a white box at a segment-specific position.</li>
+<li>2026-09-11: Lossy WebP thumbnails use the <code>webp</code> crate (bundled libwebp) at quality 75 because the <code>image</code> crate only writes lossless WebP, which would be roughly five times larger per hour of video.</li>
+<li>2026-09-11: Default server bind is <code>127.0.0.1:8090</code>, not 8080, because 8080 is taken on this machine (see <code>MACHINE-azuremc.md</code>). <code>11-deployment.md</code> is updated at M3 when the server exists.</li>
+<li>2026-09-11: Dev-profile dependencies are compiled with <code>opt-level = 2</code> so libwebp and image resizing run at a usable speed in tests; workspace crates stay unoptimised for debugging.</li>
+<li>2026-09-11: M1 starts with sidecar import. <code>LocalFile</code> reads <code>&lt;stem&gt;.info.json</code> and <code>&lt;stem&gt;[.lang].{srt,vtt}</code>; files under <code>&lt;media.cache_dir&gt;/incoming/</code> are moved (with sidecars) to <code>&lt;cache_dir&gt;/&lt;blake3&gt;.&lt;ext&gt;</code>, files elsewhere stay put. <code>source_uri</code> becomes the sidecar's <code>webpage_url</code> when present so a transferred download keeps its origin; the local path is in the stored probe. A duplicate in <code>incoming/</code> whose hash is already cached is deleted rather than kept.</li>
+<li>2026-09-11: Subtitle cues are grouped into spans of about 15 s (new span after a gap over 2 s) before storage; single cues are too short to rank well in BM25. YouTube's rolling two-line auto-captions are collapsed to their new material. Human-authored subtitles (listed under <code>subtitles</code> in <code>.info.json</code>) get confidence 1.0, automatic captions 0.6, so ASR (when it exists) can prefer to replace only the automatic ones. Sidecar subtitle tracks use <code>stream_index &gt;= 1000</code> because they have no container stream.</li>
+<li>2026-09-11: Chapters from <code>.info.json</code> (else container chapters) are written as <code>chapter</code> Segments during acquisition by the scheduler, not by an operator: they are metadata that needs no decoding, and the fine-pass <code>chapters</code> operator can later replace them with topic segmentation when neither source has them.</li>
+<li>2026-09-11: The default policy is now <code>coarse_local</code> (<code>subtitle_import</code>, <code>sample</code>, <code>phash</code>, <code>thumbnail</code>): everything that runs without a model provider. <code>m0</code> remains for the timing benchmark.</li>
+<li>2026-09-11: <code>YtDlp</code> downloads into <code>&lt;cache_dir&gt;/incoming/</code> with the same fixed argument set as <code>scripts/download_videos.sh</code> (720p MP4, <code>.info.json</code>, subtitles and auto-captions converted to SRT, embedded chapters, download archive) and then reuses <code>LocalFile</code>, so both paths produce identical index contents. The URL is passed after <code>--</code> so user input can never be read as a flag. Playlists expand via <code>--flat-playlist</code>.</li>
+<li>2026-09-11: <code>vi search</code> (M1, text only so far) fuses per-kind BM25 lists with reciprocal rank fusion (k = 60), then groups evidence by the chapter segment containing it, or by 60 s windows when a video has no chapters. A group scores <code>best + 0.3 × sum(others)</code>, so a chapter where transcript and on-screen text agree outranks a single lucky keyword. Scene segments replace chapters as the grouping unit once shot and scene detection exist. Query words are ANDed with a prefix match on the last word; quoting is escaped so user text cannot inject FTS5 syntax.</li>
+<li>2026-09-11 (GCP): Development moved to a GCP <code>a2-ultragpu-1g</code> (12 vCPUs, 167 GiB, one A100 <strong>80 GB</strong>, Ubuntu 26.04, ffmpeg 8.0). <code>docs/MACHINE.md</code> describes it; the azuremc file keeps its name. The kickoff prompt assumed <code>a2-highgpu</code> with 40 GB; with 80 GB a 32B VLM fits in fp16 on one GPU, so no quantisation or tensor parallelism is planned.</li>
+<li>2026-09-11 (GCP): The blank 375 GB local SSD (<code>/dev/nvme0n1</code>) was left unformatted: the kickoff session's permission policy refused the <code>mkfs</code>, and nothing needs it yet (<code>/dev/shm</code> is 84 GB, the OS disk has 715 GB free for <code>target/</code>). Format and mount it at <code>/mnt/localssd</code> by hand if build times or temp files ever matter.</li>
+<li>2026-09-11 (GCP): No Docker on this machine yet. The Whisper server runs as a plain user process: faster-whisper in a uv-managed Python 3.12 venv (<code>/data/videoindex/asr/.venv</code>; the system Python 3.14 has no ML wheels) with the CUDA 12 runtime supplied by the <code>nvidia-cublas-cu12</code> and <code>nvidia-cudnn-cu12</code> pip wheels, so no system CUDA install was needed. <code>scripts/asr-server/server.py</code> is a small FastAPI app implementing the OpenAI <code>/v1/audio/transcriptions</code> shape (verbose_json with word timestamps) over <code>BatchedInferencePipeline</code>; <code>scripts/asr_server.sh start|stop|status</code> manages it on <code>127.0.0.1:9000</code>. A container and a systemd unit can replace this later without touching the <code>openai_compat</code> adapter.</li>
+<li>2026-09-11 (GCP): ONNX Runtime models run on the CPU until a CUDA toolkit (cudart, cuBLAS, cuDNN 9) is installed system-wide, which the kickoff says to ask about first. <code>vi doctor</code> reports whether those libraries are present. Model files live under <code>/data/videoindex/models/&lt;model&gt;/</code>; the operators take their paths from config and refuse to start with a download hint when a file is missing. SigLIP is <code>Xenova/siglip-base-patch16-224</code> (768-dim) because no ONNX export of <code>so400m-patch14-384</code> exists on the Hub; swapping models is a config change.</li>
+<li>2026-09-11 (GCP): <code>vi-providers</code> holds the capability traits, the role registry, the per-provider <code>Governor</code> (semaphore + token buckets), retries and cost accounting, and the HTTP adapters. Local ONNX adapters implement the same traits from <code>vi-perceive</code> (which owns the ONNX Runtime sessions) and plug into the registry through <code>register_factory("onnx_local", ...)</code>, so <code>vi-providers</code> never depends on ONNX Runtime and <code>vi-perceive</code> stays the only crate that does. The pipeline registers the factory at start-up.</li>
+<li>2026-09-11 (GCP): Provider tables gained typed fields (<code>concurrency</code>, <code>requests_per_minute</code>, <code>tokens_per_minute</code>, <code>timeout_secs</code>, <code>max_retries</code>, <code>pricing</code>, <code>model_dir</code>) next to the free-form <code>extra</code> map, and <code>vi_core::Error::Provider</code> (exit code 8) distinguishes a failed or unbound provider from an unsupported feature. No providers or roles are configured by default; <code>coarse_local</code> stays the default policy and provider-backed operators fail at plan time with the role that is missing.</li>
+<li>2026-09-11 (GCP): Silero VAD runs through the <code>ort</code> crate (ONNX Runtime 1.23 prebuilt binaries downloaded at build time, rustls for the download, no <code>tracing</code> feature so ONNX Runtime's own INFO chatter stays out of the logs). Model files live under <code>models.dir</code> (<code>/data/videoindex/models</code> on servers, <code>~/.cache/videoindex/models</code> otherwise), one subdirectory per model; a missing file fails at operator start with the download hint. The whole audio track is decoded to memory (16 kHz mono i16, 115 MB per hour) and scored in one pass with 32 parts of the recording batched through the model in lockstep, because one ONNX Runtime call per 32 ms window cost more than the arithmetic: 24 s → 14 s for a 34-minute track including the decode.</li>
+<li>2026-09-11 (GCP): VAD segments are long on purpose (<code>max_segment_secs</code> 120, <code>min_silence_ms</code> 1000): the batched Whisper server splits each request into 30 s pieces at pauses and fills its GPU batch, so 70 requests of ~27 s transcribe 32 minutes of speech in 65 s (29× real time, 4 concurrent requests), against 17× with 146 requests of ~13 s. Segments still start and end at detected silences, so no word is cut. The ASR operator carries the PCM inside the <code>SpeechRange</code> item (bounded channels keep at most ~8 items, 30 MB, in flight) instead of re-decoding per range.</li>
+<li>2026-09-11 (GCP): Whisper's batched decoder returns one segment per 30 s piece, so the ASR operator splits segments longer than <code>models.asr.span_secs</code> (15 s) on word timings, cutting after sentence-final punctuation in the second half of a piece or else at the longest pause, then groups short segments as <code>subtitle_import</code> does. Word timings are stored as <code>{"w","s","e","p"}</code> with absolute seconds. Each ASR request writes its own <code>Provenance</code> row (provider, model, media seconds, latency, attempts) so cost roll-ups work per request.</li>
+<li>2026-09-11 (GCP): <code>subtitle_import</code> skips a sidecar whose cue text is identical to one already imported (yt-dlp writes YouTube auto-captions twice, as <code>en</code> and <code>en-orig</code>), and the rolling-caption collapse now also recognises a cue that repeats the second line of the previous two-line cue, which is how yt-dlp's current SRT conversion rolls. Before this each auto-caption sentence appeared four times in the index.</li>
+<li>2026-09-11 (GCP): Provider-backed operators declare <code>required_roles()</code>; the scheduler checks the bindings at plan time and fails with exit code 8 naming the role, so an unconfigured provider is reported before any decoding. <code>config/gcp-a100.toml</code> is the config for this machine (Whisper on <code>127.0.0.1:9000</code>, ONNX models under <code>/data/videoindex/models</code>, a <code>coarse_asr</code> policy); pass it with <code>--config</code> or <code>VI_CONFIG</code>.</li>
+<li>2026-09-11 (GCP): <code>shot_boundary</code> compares consecutive <em>sampled</em> frames (1 fps), so its shots are runs of visually continuous samples and a cut is placed at the first sample of the new shot; at that rate a shot is never shorter than the sampling interval, which is what slide-based lectures need. The distance is <code>0.5 × (1 − HSV histogram intersection, 8×4×4 bins) + 0.5 × edge change ratio</code> on a 96-pixel-wide grey image with one pixel of dilation tolerance; a cut needs the distance above 0.25 and either above 0.7 or above <code>mean + 3σ</code> and 2.5× the mean of the last 20 within-shot distances. The segments start at 0 and end at the video duration so the <code>shot</code> level has no gaps, and each carries its first sample as <code>keyframe_sample_id</code>. The 2-minute fixture (a hard cut every 10 s with a burned-in timer) yields exactly 12 shots, asserted in the pipeline tests.</li>
+<li>2026-09-11 (GCP): Shot detection does not try to catch text-only slide changes. On the AI Engineer VC talk (white slides, small speaker inset, sponsor logos swapping every 10 s) a title change moves 2 to 9% of the pixels of the small grey image and about 10% of the edges, the same as a logo swap, so no threshold separates them; the 34-minute talk is six shots. Slide changes are detected from OCR text instead: the <code>ocr</code> operator runs on frames whose pixel-change measure (<code>FrameSignature::pixel_change</code>) fires, not only on pHash-distinct frames (a pHash of a mostly white slide ignores its text), and consecutive identical text collapses. <code>cargo run -p vi-perceive --example shot_debug -- &lt;file&gt; [t0] [t1]</code> prints the per-sample metrics for tuning.</li>
+<li>2026-09-11 (GCP): The vector store is a flat, append-only, memory-mapped file pair per model (<code>vectors/&lt;model&gt;.vec</code> with normalised f32 rows, <code>&lt;model&gt;.meta</code> with embedding id, video id, target kind and an alive flag per row) searched exactly by brute force on rayon, not Lance. <code>lance</code> 11 pulls 689 crates (Arrow, DataFusion, an object-store stack) into a workspace of about 250 for a feature that at M1 to M4 scale (hundreds of thousands of vectors) runs in single-digit milliseconds with exact results, which the eval harness prefers over approximate ones. Deletes flip the alive flag, <code>compact</code> rewrites the files and updates the <code>row</code> column added to <code>embeddings</code> in schema v2, and <code>put_embeddings</code> replaces an earlier vector for the same <code>(target, model)</code>. Lance or usearch remain a drop-in behind <code>Storage</code> when approximate search is needed. <code>04-data-model.md</code> is updated.</li>
+<li>2026-09-11 (GCP): <code>image_embed</code> consumes <code>Hashed</code> items, which now carry the frame, and embeds only frames farther than <code>PHASH_DEDUP_DISTANCE</code> from the previously embedded one (47 of 2,057 frames on the VC talk, about a third on slide-heavy lectures). Pixels are copied out to an owned buffer before batching so decoder slots are released at once; SigLIP base on 6 CPU cores embeds a batch of 16 in about 4 s. <code>text_embed</code> embeds transcript and OCR spans with bge-small (32 per batch, 342 spans in 11.6 s of CPU); its <code>OcrSpan</code> input is optional so it runs in policies without <code>ocr</code>. Operators declare <code>optional_inputs()</code> for exactly this.</li>
+<li>2026-09-11 (GCP): <code>vi search</code> is hybrid: per-kind BM25 lists, a text-vector list (bge-small, query prefixed with bge's retrieval instruction through <code>TextEmbedder::embed_query</code>) over transcript, OCR and description rows, and an image-vector list (SigLIP text tower) over frame embeddings, fused with RRF (k = 60). Grouping units are scenes when they exist, else shots cut into pieces of about 60 s (so a 29-minute static shot does not swallow a whole talk), else chapters, else 60 s windows; the chapter title is still reported when the unit falls inside one. Each piece of evidence lists the lists that ranked it (<code>bm25:transcript</code>, <code>text_vec</code>, <code>image_vec</code>) so relevance can be debugged. Query embedders load lazily and the SigLIP towers load one at a time, so a text query pays for bge and the SigLIP text tower only (about 1.5 s of model loading in the one-shot CLI; the server keeps them resident).</li>
+<li>2026-09-11 (GCP): <code>sample</code> writes each <code>FrameSample</code> row before emitting the frame. Batching rows raced <code>image_embed</code>, whose embeddings reference the sample id: the vector's video could not be resolved and search then grouped it under a nil video. A per-frame insert is a few thousand statements per hour of video.</li>
+<li>2026-09-11 (GCP): OCR is RapidOCR in-process: the PP-OCRv4 detector (DB, 960 px longest side, threshold 0.3, box score 0.5, unclip 1.6, axis-aligned boxes from connected components) and the English PP-OCRv3 recogniser (CTC, height 48, batches of 8 sorted by aspect ratio, <code>en_dict.txt</code> + blank + space = 97 classes). The <code>ocr</code> operator reads a frame when its pHash moved past the dedup distance, or its pixel-change measure against the last frame read is at least <code>models.ocr.min_pixel_change</code> (2%), or <code>max_gap_secs</code> (30 s) passed; lines already present in the previous read are not stored again. On a 47-minute slide lecture that read 247 of 2,815 frames and stored 841 lines, inside the decode's shadow. Reading order is rows by centre then left to right; boxes are stored normalised.</li>
+<li>2026-09-11 (GCP): The operator output cache is a marker file per completed stage under <code>&lt;index&gt;/cache/operators/</code>, keyed by content hash, operator id and version, and the operator's <code>cache_params()</code> (provider, model, thresholds, sampling rate). The outputs themselves are the rows in the index (videos are keyed by content hash, so identical content already shares them). At plan time each stage is <em>run</em>, <em>replayed</em> or <em>skipped</em>: skipped when cached and no running consumer needs its items; replayed (<code>Operator::replay</code>, re-emitting stored spans or segments without recomputing: <code>subtitle_import</code>, <code>asr</code>, <code>ocr</code>, <code>shot_boundary</code>) when cached but a consumer runs; run otherwise, and always run when one of its producers runs, because a re-run producer replaces the rows the stage's outputs hang off. This replaces M0's all-or-nothing resume: adding <code>ocr</code> to a policy after a <code>coarse_asr</code> run re-decodes (sampling cannot replay) but leaves ASR and VAD untouched, and <code>text_embed</code> gets its transcript spans replayed. <code>--force</code> ignores markers; a stage that skipped or failed inputs leaves no marker so the next run completes it.</li>
+<li>2026-09-11 (GCP): Budgets: <code>Budget::for_policy</code> turns <code>max_cost_usd_per_hour</code> and <code>max_wallclock_per_hour</code> (now parsed: <code>20m</code>, <code>1h30m</code>, <code>90s</code>; <code>0</code> means unlimited) into a per-job ceiling using the video's duration (at least a minute's worth). Provider-backed operators call <code>allow_provider_call()</code> before each call and record spend from <code>CallStats</code>; once a limit is hit no further calls are issued, the inputs are counted as skipped, the stage completes, and the report says which limit stopped it. Provider errors after the adapter's retries are recorded per input range (first 50 kept with times and messages) and the stage continues; a stage whose every input failed is marked failed and the video ends <code>failed</code>.</li>
+<li>2026-09-11 (GCP): <code>Http</code> and <code>ObjectStore</code> acquirers download into <code>&lt;cache_dir&gt;/incoming/&lt;8-char URL hash&gt;-&lt;file name&gt;</code> and then reuse <code>LocalFile</code>, so all four acquirers produce identical index contents and sidecars next to a remote object (<code>.info.json</code>, <code>.srt</code>) are picked up. <code>Http</code> claims only URLs whose path ends in a media extension (video-site URLs stay with <code>YtDlp</code>), disables automatic redirects and resolves every hop's host itself, refusing private, loopback, link-local, CGNAT and metadata addresses unless <code>media.download.allow_private_addresses</code> is set; it resumes with <code>Range</code>, enforces <code>max_bytes</code> from <code>Content-Length</code>/<code>Content-Range</code> and while streaming, and rejects <code>text/html</code> bodies. <code>ObjectStore</code> uses the <code>object_store</code> crate with credentials from the environment; <code>r2://</code> is S3 with <code>media.download.r2_endpoint</code> or <code>R2_ENDPOINT</code>; a URL ending in <code>/</code> expands to the media objects under the prefix. Tests run against a local HTTP stand-in and <code>object_store</code>'s local filesystem store.</li>
+<li>2026-09-11 (GCP): <code>default_policy</code> defaults to <code>auto</code>: <code>coarse_only</code> (every coarse operator: subtitles, VAD, ASR, sampling, shots, pHash, thumbnails, SigLIP, OCR, bge) when the <code>asr</code>, <code>ocr</code>, <code>image_embed</code> and <code>text_embed</code> roles are all bound, else <code>coarse_local</code>. <code>lecture_default</code> keeps the fine pass (<code>scenes</code>, <code>chapters</code>, <code>vlm_describe</code>, <code>entities_events</code>) and fails at plan time until M2 implements them; <code>text_embed</code> moved into the coarse pass because hybrid search needs span vectors before any VLM runs.</li>
+<li>2026-09-11 (GCP): No sort comparator may use a tolerance or <code>partial_cmp(..).unwrap_or(Equal)</code>: Rust's sort panics on comparators that are not total orders, and the OCR reading-order sort (rows matched within half a box height) did exactly that on the first long workshop, killing the rayon task and failing every OCR read of that video. Reading order now sorts by centre y, groups rows greedily, and sorts each row by x; every float sort uses <code>total_cmp</code>.</li>
+<li>2026-09-11 (GCP): <code>dataset/devset.jsonl</code> holds the retrieval dev set: 72 questions over all 30 dataset videos (65 transcript, 3 OCR, 4 visual). Transcript and OCR questions carry an <code>anchor</code> phrase that <code>scripts/devset_eval.py</code> resolves to a time from the video's captions (or the index's OCR spans), so ground truth follows the media rather than hand-typed seconds; visual questions carry <code>t0</code>/<code>t1</code> from contact sheets. A hit counts when the result's video matches and its range, widened by 30 s, overlaps the anchor's range (cue time −5 s to +30 s). The questions are paraphrases, not caption text, so BM25 alone misses many of them and the vector lists have to earn their place.</li>
+<li>2026-09-11 (GCP, M2): Chat adapters share one SSE parser (<code>vi_providers::sse</code>, also accepts JSON lines) and stream <code>GenerateEvent</code>s from <code>futures::stream::unfold</code> state machines, so tool-call fragments are assembled per adapter (OpenAI by index, Anthropic by content block, Gemini whole per part) and every stream ends with <code>Usage</code> then <code>Done { finish_reason, stats }</code> with <code>finish_reason</code> normalised to <code>stop</code>, <code>length</code> or <code>tool_use</code>. Images go in as base64 JPEG (quality 85) from raw RGB; only Gemini takes video inline (under 19 MB; file upload is deferred). <code>ContentPart::ToolCall</code>/<code>ToolResult</code> carry the tool name because Gemini keys function responses by name, not id. Default prices per model family live in <code>vi_providers::pricing</code> and are overridable per provider; they are estimates to check against vendor lists. Anthropic rejects <code>temperature</code> on Claude 5 models, so it is sent only when non-zero; a live call to <code>claude-sonnet-5</code> with one tool costs about $0.003 and 2 s.</li>
+<li>2026-09-11 (GCP, M2): <code>vi-agent</code> runs the loop from <code>06-query-and-agents.md</code> around the <code>agent_llm</code>/<code>agent_vlm</code> roles: a system prompt (versioned in <code>vi-providers/prompts/agent_system.md</code>, hash recorded) plus a compact list of the index's videos (id, duration, title) when there are at most 40, then a tool-using generation loop. Tools: <code>search</code>, <code>list_videos</code>, <code>timeline</code>, <code>get_transcript</code>, <code>get_ocr</code>, <code>get_descriptions</code>, <code>view</code>, and <code>describe</code> when a <code>vlm_describe</code> role is bound. Tool results are JSON text; a <code>view</code> grid follows as an image in a user turn because OpenAI-shaped APIs cannot carry images in tool messages. Citations are inline markers <code>[[cite:VIDEO_ID:T0-T1]]</code> that a streaming scanner removes from the token stream and emits as <code>Citation</code> events typed by the evidence the loop has seen (<code>transcript</code>, <code>ocr</code>, <code>frame</code>, <code>description</code>, else <code>range</code>); markers naming unknown videos are dropped. Budgets (<code>max_tokens</code>, <code>max_cost_usd</code>, <code>max_wallclock_secs</code>, <code>max_tool_calls</code>) are checked before each provider call; when one is hit the model is asked to answer from what it has and <code>Done { partial: true, reason }</code> says which limit. Sessions keep the last 20 question/answer pairs in the <code>sessions</code> table with a 24 h TTL. <code>Policy</code> decides tools for baselines (<code>RetrievalOnlyPolicy</code>: one search, then answer); the LLM still writes the answer. First live run on the VC talk: 3 tool calls, correct timestamps, $0.065, 14.6 s with <code>claude-sonnet-5</code>.</li>
+<li>2026-09-11 (GCP, M2): Frame grids are composed in <code>vi-perceive::grid</code> with a built-in 5×7 bitmap font for the <code>HH:MM:SS</code> labels (no font files or text-rendering crates), nearest-neighbour tiles, <code>view</code> clamps to 120 s and 16 frames (lowering fps), and grids are stored as PNG blobs so a citation of a <code>view</code> can be rendered later. The first run rendered 9 frames of the VC talk in 1.8 s including decode.</li>
+<li>2026-09-11 (GCP, M2): The fine pass. <code>scenes</code> groups shots with a boundary strength of <code>1 − cosine(keyframe SigLIP embeddings)</code> halved when a transcript span crosses the boundary, merging across weak boundaries (&lt; 0.5) and any scene under 20 s while staying under 180 s; shots get <code>parent_id</code>. <code>chapters</code> keeps imported chapters when the source had them; otherwise it embeds each scene's transcript with the <code>text_embed</code> role, computes TextTiling-style depth scores over the scene sequence, adds a bonus where the first title-like OCR line changes, and picks boundaries for about one chapter per 10 minutes with a 3-minute minimum, titling each from its first title-like OCR line. <code>vlm_describe</code> sends a 3×3 grid of a scene (fps chosen to fit nine frames) plus the scene transcript as data to the <code>vlm_describe</code> role with the versioned prompt, asks for JSON when the provider supports schemas, stores a <code>Structured</code> Description (flattened text for FTS and embeddings, JSON kept) and writes the summary onto the scene; the grid is kept as a blob. <code>entities_events</code> sends 5-minute windows of descriptions and transcript to the <code>extract_llm</code> role and stores entities (canonicalised by lower-cased name) with mentions and events; a re-run replaces a video's extractions. All four honour the job budget and record per-range failures. A job whose policy has fine operators ends in state <code>fine</code>.</li>
+<li>2026-09-11 (GCP, M2): The Python binding (<code>bindings/python</code>, PyO3 0.29 + maturin, abi3 for Python 3.10+) owns one tokio runtime and releases the GIL (<code>Python::detach</code>) around every core call. <code>Index.add</code> returns a <code>Job</code> whose <code>progress()</code> iterates the event bus and <code>wait()</code> returns the reports; <code>search</code>, <code>timeline</code>, <code>videos</code>, <code>status</code> return plain dicts (JSON through serde, <code>{num, den}</code> timestamps flattened to seconds); <code>ask</code> returns an <code>AskStream</code> usable with <code>for</code> or <code>async for</code> (<code>pyo3-async-runtimes</code>) or drained with <code>collect()</code>. <code>frame</code> returns a NumPy <code>HxWx3 uint8</code> array as a copy of the decoded buffer; the zero-copy buffer-protocol view over <code>Arc&lt;FrameBuffer&gt;</code> in <code>03-rust-boundary.md</code> is deferred until a caller needs it (a 640 px frame copies in microseconds). Custom operators and policies from Python are not wired yet. The decode worker cannot be the Python process, so <code>media.worker.path</code> must point at a <code>vi</code> or <code>vi-media-worker</code> binary; the wheel will bundle the worker later. Tests: <code>pytest bindings/python/tests</code> after <code>maturin develop</code>.</li>
+<li>2026-09-11 (GCP, M2): First full-pass run on the VC talk found two defects: a 29-minute static shot became one scene (scenes now cut shots longer than 180 s into pieces of about 120 s, snapped to transcript span starts), and the extraction model wrapped its JSON in prose or ran out of tokens (the first <code>{...}</code> object is now extracted and the budget is 4,000 tokens). Stages that store without emitting (embeddings, extraction) are no longer judged failed when one batch fails: the all-failed rule counts stored rows too.</li>
+<li>2026-09-11 (GCP): The decode worker is spawned from <code>/proc/self/exe</code> on Linux, not from <code>current_exe()</code>'s path. Rebuilding <code>vi</code> while a long index job ran replaced the binary on disk; every later worker spawn failed with "failed to spawn .../vi" and 25 of 30 videos errored in seconds. <code>/proc/self/exe</code> stays valid for the life of the process. The same run also showed that the design's <code>max_wallclock_per_hour = "20m"</code> is too tight for a CPU-only ONNX pass on a loaded machine (a 1 h 46 min workshop hit it and skipped 78 OCR/embedding inputs), so the built-in policies default to 60 min and the GCP config removes the limit for the dataset run.</li>
+<li>2026-09-11 (GCP, M2): The first fine pass on the VC talk (17 scenes of about 2 minutes, 12 structured descriptions, 3 topic chapters) titled chapters from sponsor logos ("Al Engineer", "Microsoft") because any OCR line of 8+ characters counted as a title. A title now needs at least three words of mostly letters, no URL or e-mail, and a box in the upper 60% of the frame at least 3% high. Fine-pass cost on that talk with <code>claude-sonnet-5</code>: descriptions $0.34 (15 calls), extraction $0.52 (12 five-minute windows), about $1.6 per hour of video against the $2 default ceiling.</li>
+<li>2026-09-11 (GCP): CUDA 13.1 toolkit and cuDNN 9 are installed from NVIDIA's <code>ubuntu2404</code> apt repository (the Ubuntu 26.04 package is CUDA 12.4, and <code>ort</code> 2.0.0-rc.13 ships ONNX Runtime 1.28 binaries built only for CUDA 13). <code>vi</code> is built with <code>--features cuda</code>; <code>models.device = "auto"</code> then resolves to <code>cuda</code> and <code>vi doctor</code> shows the toolkit and libraries. The first GPU run found that <code>onnx_local</code> handed every <code>providers.ocr()</code>/<code>image_embedder()</code> call a fresh handle whose model cell was empty, so the models were loaded 518 times in one video (1.2 s each on CUDA; also true, if cheaper, on the CPU). The loaded models now sit behind shared <code>Arc&lt;OnceLock&gt;</code>s and load once per process.</li>
+<li>2026-09-11 (GCP): No hardware video decode on this machine. The driver install has no <code>libnvcuvid.so</code>, and the dataset is 22 AV1 + 8 VP9 streams; the A100's NVDEC has no AV1 support, so even a working <code>libnvcuvid</code> would cover a quarter of the corpus. Decode stays on the CPU (libdav1d / libvpx through libav) and <code>vi-media</code> remains the pass's bottleneck: with the ONNX models on the GPU (10 to 35× faster per call, see <code>MACHINE.md</code>) every other coarse stage finishes in the decoder's shadow. <code>onnx_bench</code> (an example in <code>vi-perceive</code>) is the per-call benchmark used for such comparisons.</li>
+<li>2026-09-12: Python operators and policies. Custom operators plug in through <code>Scheduler::register_operator(name, factory)</code>; a factory builds a fresh operator per job so per-job state never crosses jobs. A custom operator with a built-in name replaces the built-in one (that is how an experiment swaps a stage). Items cross the boundary as JSON dicts plus NumPy arrays for pixels and audio; rows come back as JSON and <code>vi_pipeline::callback::store_rows</code> turns them into stored rows (ids, provenance, timestamps at a 1 MHz timebase) before emitting them, so bindings never touch storage themselves. A Python operator's outputs are cached under its <code>id</code>, <code>version</code> and <code>params</code> like any stage, and its <code>run</code> executes on a tokio blocking thread holding the GIL only for the call. Operator ids are <code>&amp;'static str</code> in the trait; a registered Python id is leaked once, which is fine for a handful of registrations per process. Inline policies (<code>add(..., policy={...})</code>) default unset operator lists to empty rather than <code>lecture_default</code>, so a dict listing only <code>coarse</code> does not silently pull in the VLM stages. A Python policy returns <code>{"tool", "args"}</code> or <code>None</code>; the LLM still writes the final answer.</li>
+<li>2026-09-12: Full-text queries OR their terms. <code>fts_query</code> used to emit every word as a required term (FTS5's implicit AND), which is right for keyword lookups and wrong for the questions people type: on the 72-question dev set the BM25 lists were empty for almost every miss and the fusion ran on the vector lists alone. Terms are now OR-ed after dropping English stopwords (a query made only of stopwords keeps them), the last term still prefix-matches, and BM25 ranks rows matching more terms higher. The eval's caption anchors now match across up to three consecutive cues, since captions break sentences mid-phrase; eight questions were unscorable before.</li>
+<li>2026-09-12: cuDNN algorithm search set to heuristic, OCR recogniser widths bucketed. The "decode-bound" reading of the first GPU run was wrong: decode alone is 39.5 s for the 47-minute test lecture while the visual pass took 112 s (CPU) and 177 s (first CUDA build). The CUDA loss was cuDNN's exhaustive per-shape convolution search on the OCR recogniser, whose padded batch width changed nearly every call. <code>OnnxSession</code> now builds the CUDA provider with <code>ConvAlgorithmSearch::Heuristic</code>, and <code>RapidOcr::recognize</code> rounds the batch width up to a multiple of 32 (a few dozen shapes per video instead of hundreds; 2% fewer recognised lines on the test video from the extra zero padding, within the confidence filter's noise). Visual pass: 50 s on the GPU, 10 s above the decode floor. The <code>onnx_bench</code> example measures a single fixed shape and cannot see this class of problem; shape-varying workloads need the pipeline timing.</li>
+<li>2026-09-12: Technical reports are generated, not hand-laid-out. <code>scripts/report/mdreport.py</code> turns the Markdown docs into a paged PDF (python-markdown + WeasyPrint: cover, contents with page numbers, running headers, Pygments code, print-friendly tables); <code>scripts/report/diagrams.py</code> renders the docs' mermaid blocks without Node by translating flowcharts, state and ER diagrams to Graphviz and drawing sequence diagrams with matplotlib (the chosen orientation is whichever needs less shrinking to fit a portrait page); <code>scripts/report/charts.py</code> draws the charts with one palette and one set of mark rules. <code>benchmark_report.py</code> and <code>team_report.py</code> are the two report definitions; both read their numbers from the evaluation artefacts, the logs, the index and git at build time, so a report is regenerated rather than edited. PDFs are committed under <code>docs/reports/</code> with the date in the file name so the team can read them without a toolchain.</li>
+<li>2026-09-12: Gemini comparison is run programmatically on the same questions and files. <code>scripts/gemini_video_eval.py</code> uses the Interactions API with <code>processing: "agentic"</code> and scores answers with the QA dev set's rules (substring accept strings, timestamps in the prose parsed as citations, 90 s tolerance). Gemini cost is computed from the returned usage at list price with the media the agent loads (<code>total_tool_use_tokens</code>) billed as input and thinking as output; that assumption is stated in the report. The API key is read from the git-ignored <code>.env</code>.</li>
+<li>2026-09-12: Planner fix: a replaying consumer is not a reason to run its producer. The first fine pass over the coarse-indexed dataset re-ran <code>sample</code>, <code>phash</code>, <code>ocr</code>, <code>image_embed</code>, <code>vad</code> and <code>asr</code> for every video: <code>scenes</code> needed shots, <code>shot_boundary</code> was planned as <em>replay</em>, and the planner counted that replay as a consumer needing frames from <code>sample</code>, which cannot replay, so <code>sample</code> ran and dragged every frame consumer with it. Only a consumer planned as <em>run</em> needs items now; a replay reads nothing but the media item. Covered by <code>a_fine_stage_over_a_cached_coarse_pass_replays_instead_of_redecoding</code>. The aborted run left one video in <code>dataset.vidx</code> half re-written (rows deleted and partially re-inserted while its cache markers still say "complete"); it is force re-indexed before the fine pass. Lesson recorded in <code>05-indexing-pipeline.md</code>: a killed re-run is the one way a cached stage's marker can lie, so <code>--force</code> on that video is the repair.</li>
+<li>2026-09-12 (M3): <code>vi-server</code> is one axum process over every index in a directory. Indexes are addressed by id (<code>&lt;id&gt;.vidx</code> under <code>server.index_root</code>), open lazily and stay open; <code>POST /v1/indexes</code> creates. Blobs and MCP are per index rather than global because keys and tools only make sense against one index; <code>/v1/mcp</code> uses <code>server.default_index</code> (or the only index). MCP is the stateless streamable-HTTP profile (JSON-RPC over POST, 202 for notifications, 405 on GET) because every client in scope (Claude Code, LangGraph, the eval harness) speaks it and it needs no session store. <code>ask</code> and job progress use SSE only when asked for (<code>Accept: text/event-stream</code>), so curl and simple clients get JSON. API keys are compared in constant time and never logged (a 4+4 character label stands in); the per-key daily spend cap lives in memory, which is enough for a single-process demo and is the first thing the hosted mode (M5) moves into storage. Metrics are hand-rolled Prometheus text: a metrics crate would add a dependency for eight counters. <code>vi serve</code> is a subcommand of <code>vi</code> so the decode worker re-exec (<code>/proc/self/exe</code>) works unchanged.</li>
+<li>2026-09-12 (M3): The Node binding creates the <code>ask</code> stream lazily on the first <code>next()</code> call. napi-rs runs <code>async fn</code> methods on its own tokio runtime but plain methods on the JS thread with no runtime entered, and <code>Agent::ask</code> spawns tasks, so building the stream inside <code>ask()</code> aborted the process ("failed to initiate panic"). The stream object holds the agent and request until the first awaited <code>next()</code>. The JS wrapper turns <code>next()</code> into an <code>AsyncIterable</code> with a <code>collect()</code> helper, matching the Python binding's shape. Timestamps are flattened to seconds by the same core helper the HTTP server uses.</li>
+<li>2026-09-12 (M3): The demo chat app talks to <code>vi-server</code> through its own Node backend, never directly: the browser holds no key, the backend adds one capped demo key and a fixed per-question budget, and SSE passes through unchanged. The player is the YouTube IFrame API on the video's source URL rather than served media, so the demo streams nothing itself and a citation click is a <code>seekTo</code>. Docs are MkDocs Material fed by a sync script from the core repo's <code>docs/</code>, so the design documents stay single-sourced.</li>
+<li>2026-09-12: GPU end to end: the 30-video dataset re-indexed on the CUDA build in 6,109 s (1 h 42 min), 22× real time against 7× for the CPU run (17,856 s), zero failures, while the fine pass and builds competed for part of the run. Camera-heavy lectures reached 45× real time; the slowest slide decks about 10×.</li>
+<li>2026-09-12 (M4): The evaluation harness answers multiple-choice questions through <code>vi ask</code> restricted to the question's video, with the options in the prompt and a required final <code>Answer: X</code> line; the letter parser takes the last such line, else a lone letter at the end, else an option letter in the last line, and an unparseable answer is wrong (counted separately). Subset runs use a stratified sample by task type so the six LVBench capabilities keep their proportions. The uniform-sampling baseline bypasses VideoIndex entirely (ffmpeg frames tiled into labelled grids plus the caption file, one Anthropic Messages call) so it measures the model without an index. Contrary to <code>08-evaluation.md</code>, YouTube downloads work from this GCP host with yt-dlp and a deno JS runtime at about 200 MB per hour of 720p video; <code>scripts/download_videos.sh</code> on a Mac is no longer the only path. Subtitle requests are limited to English variants: asking for <code>en.*</code> triggered 429s on the auto-translated tracks.</li>
+<li>2026-09-12 (M4): Multiple-choice runs use a 120k-token, $0.50 budget per question and re-ask once when the answer comes back empty. LVBench questions about visual events make the agent call <code>view</code> several times, and each labelled grid costs about 1,500 tokens per frame; at 60k tokens the budget tripped mid-look and the forced final turn sometimes returned no text (the agent's own retry also came back empty). The re-ask is charged to the question so cost stays honest.</li>
+<li>2026-09-12 (M4): Final answer turns keep the tool definitions and set <code>tool_choice: none</code>. On the LVBench pilot the agent returned empty text on 7 of 100 questions and the retrieval-only policy wrote pseudo tool calls (<code>View({...})</code>) on 72 of 100: once the history holds tool calls, a turn with the tools removed makes Claude either produce nothing or imitate call syntax. <code>GenerateRequest</code> gained <code>tool_choice</code> (Anthropic <code>tool_choice: {type: none}</code>, OpenAI <code>"none"</code>, Gemini <code>functionCallingConfig.mode: NONE</code>) and the loop adds a one-line note that no tools are available in that turn. The eval prompt also stopped telling tool-less configurations to "use the tools".</li>
+<li>2026-09-12: Fine pass over the dataset measured: 5 h 8 min and $45.96 for 36.6 hours of video with Claude Sonnet 5 ($1.26 per hour of video, split evenly between scene descriptions and entity/event extraction), against the $1.60 per hour estimated from the single-video run. Nine of 460 extraction windows came back as non-JSON and were skipped (the stage continues past a failed range by design); <code>extract_json</code> now also repairs trailing commas, the one malformation seen in the failures. Wall time is dominated by the VLM calls at 4 concurrent requests per provider; raising <code>providers.claude.concurrency</code> is the lever if the pass needs to be faster.</li>
+<li>2026-09-12: The fine index lowered dev-set retrieval (hit@5 0.944 → 0.889, MRR 0.724 → 0.661) and QA (96.2% → 92.3%) on a transcript-anchored question set: description rows enter the fusion as an equal-weight BM25 list and as text vectors, and their plausible neighbours outrank transcript hits under reciprocal-rank fusion. Kept as is for now and recorded as the first tuning target of the M4 sweep (per-kind list weights, or fusing descriptions only when the query looks visual); <code>coarse_only</code> stays the default for lectures. Citation-in-anchor rose (80.8% → 82.7%), so the added rows are not noise, just over-weighted for this set.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "content.code.copy", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

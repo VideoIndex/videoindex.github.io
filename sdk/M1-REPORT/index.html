@@ -1,0 +1,1561 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://videoindex.github.io/sdk/M1-REPORT/">
+      
+      
+        <link rel="prev" href="../11-deployment/">
+      
+      
+        <link rel="next" href="../../results/lvbench-f0.25-2026-09-12/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>M1 report - VideoIndex SDK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#m1-report-coarse-index-and-search-on-the-gcp-a100-machine" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VideoIndex SDK" class="md-header__button md-logo" aria-label="VideoIndex SDK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VideoIndex SDK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              M1 report
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/videoindex/videoindex" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    videoindex/videoindex
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VideoIndex SDK" class="md-nav__button md-logo" aria-label="VideoIndex SDK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VideoIndex SDK
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/videoindex/videoindex" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    videoindex/videoindex
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP API and MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-rust-boundary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rust boundary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-indexing-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indexing pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-query-and-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query and agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-model-providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model providers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-sdk-and-apis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SDK and APIs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Results
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Results
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M1 report
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M1 report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-was-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What was built
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timings-on-this-machine-12-vcpus-one-a100-80-gb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timings on this machine (12 vCPUs, one A100 80 GB)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dev-set-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dev set results
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dev set results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retrieval-vi-search-hybrid-bm25-per-kind-bge-siglip-rrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retrieval (vi search, hybrid: BM25 per kind + bge + SigLIP, RRF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#question-answering-vi-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question answering (vi ask)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fine-index-against-coarse-index-2026-09-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fine index against coarse index (2026-09-12)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-design-got-wrong-or-left-unclear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the design got wrong or left unclear
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-items-carried-into-m2m4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open items carried into M2/M4
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lvbench-f0.25-2026-09-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVBench sample
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lvbench-pilot-2026-09-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVBench pilot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DECISIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-was-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What was built
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timings-on-this-machine-12-vcpus-one-a100-80-gb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timings on this machine (12 vCPUs, one A100 80 GB)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dev-set-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dev set results
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dev set results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retrieval-vi-search-hybrid-bm25-per-kind-bge-siglip-rrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retrieval (vi search, hybrid: BM25 per kind + bge + SigLIP, RRF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#question-answering-vi-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question answering (vi ask)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fine-index-against-coarse-index-2026-09-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fine index against coarse index (2026-09-12)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-design-got-wrong-or-left-unclear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the design got wrong or left unclear
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-items-carried-into-m2m4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open items carried into M2/M4
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="m1-report-coarse-index-and-search-on-the-gcp-a100-machine">M1 report: coarse index and search on the GCP A100 machine<a class="headerlink" href="#m1-report-coarse-index-and-search-on-the-gcp-a100-machine" title="Permanent link">&para;</a></h1>
+<p>Written 2026-09-11 at the end of M1 (with the start of M2 folded in). The machine is described in <a href="MACHINE.md">MACHINE.md</a>; every choice made along the way is a dated bullet in <a href="../DECISIONS/">DECISIONS.md</a>.</p>
+<h2 id="what-was-built">What was built<a class="headerlink" href="#what-was-built" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Delivered</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Provider layer</td>
+<td>Capability traits, role registry, per-provider governor (semaphore, request and token buckets), retries with backoff and <code>Retry-After</code>, cost accounting into <code>Provenance</code>, key redaction, prompt registry</td>
+<td><code>vi-providers</code></td>
+</tr>
+<tr>
+<td>Adapters</td>
+<td><code>openai_compat</code> (ASR, chat with tools/images/JSON schema, embeddings), <code>anthropic</code> (Messages, tools, images), <code>gemini</code> (function calling, inline images and video), <code>onnx_local</code> (SigLIP, bge-small, RapidOCR)</td>
+<td><code>vi-providers::adapters</code>, <code>vi-perceive::onnx_local</code></td>
+</tr>
+<tr>
+<td>Local ASR</td>
+<td>faster-whisper <code>large-v3</code> on the A100 behind an OpenAI-compatible server, 4 GB VRAM</td>
+<td><code>scripts/asr-server/</code>, <code>scripts/asr_server.sh</code></td>
+</tr>
+<tr>
+<td>Operators</td>
+<td><code>vad</code> (Silero, batched), <code>asr</code>, <code>shot_boundary</code>, <code>image_embed</code> (SigLIP), <code>ocr</code> (RapidOCR, change-gated), <code>text_embed</code> (bge), <code>scenes</code>, <code>chapters</code>, <code>vlm_describe</code>, <code>entities_events</code></td>
+<td><code>vi-pipeline::ops</code>, <code>vi-perceive</code></td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>Flat memory-mapped vector store with exact search, schema v2, sessions, entities and events, embedding lookups</td>
+<td><code>vi-index</code></td>
+</tr>
+<tr>
+<td>Search</td>
+<td>Hybrid <code>vi search</code>: BM25 + text-vector + image-vector lists, RRF, grouping by scenes, shots (~60 s pieces), chapters or windows</td>
+<td><code>vi-query</code></td>
+</tr>
+<tr>
+<td>Scheduler</td>
+<td>Budgets, operator output cache with skip/replay/run planning, per-range provider failures, <code>auto</code> default policy</td>
+<td><code>vi-pipeline::scheduler</code></td>
+</tr>
+<tr>
+<td>Acquirers</td>
+<td><code>Http</code> (limits, private-address refusal, resume) and <code>ObjectStore</code> (S3/GCS/Azure/R2, prefix expansion)</td>
+<td><code>vi-media::remote</code></td>
+</tr>
+<tr>
+<td>Agent</td>
+<td><code>vi ask</code>: tool-using loop with <code>search</code>, <code>timeline</code>, <code>get_transcript</code>, <code>get_ocr</code>, <code>get_descriptions</code>, <code>view</code>, <code>describe</code>; budgets; inline citations; sessions; <code>RetrievalOnlyPolicy</code> baseline; <code>vi view</code>, <code>vi timeline</code></td>
+<td><code>vi-agent</code>, <code>vi-cli</code></td>
+</tr>
+<tr>
+<td>Python</td>
+<td><code>videoindex</code> package: <code>Index.create/open/add/search/ask/aask/view/frame/timeline/status</code>, <code>Budget</code>, <code>Config</code>, prompt overrides</td>
+<td><code>bindings/python</code></td>
+</tr>
+<tr>
+<td>Dev sets</td>
+<td>72 retrieval questions with caption/OCR anchors; 52 QA questions with accepted answers</td>
+<td><code>dataset/devset.jsonl</code>, <code>dataset/devset_qa.jsonl</code>, <code>scripts/devset_*_eval.py</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="timings-on-this-machine-12-vcpus-one-a100-80-gb">Timings on this machine (12 vCPUs, one A100 80 GB)<a class="headerlink" href="#timings-on-this-machine-12-vcpus-one-a100-80-gb" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Measurement</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M0 policy (sample, pHash, thumbnails), synthetic 1-hour 720p</td>
+<td>48.6 s wall, 6.6 CPUs busy (azuremc: 167.6 s)</td>
+</tr>
+<tr>
+<td>Coarse pass with ASR (<code>coarse_asr</code>), 34-minute talk, machine otherwise idle</td>
+<td>81 to 91 s wall; decode-bound, ASR and embeddings in its shadow</td>
+</tr>
+<tr>
+<td>Whisper large-v3 through the pipeline</td>
+<td>32 minutes of speech in 65 s = 29× real time at 4 concurrent requests; a lone 60 s clip 41×</td>
+</tr>
+<tr>
+<td>Silero VAD, 34-minute track</td>
+<td>14 s including the audio decode, batched 32 parts in lockstep</td>
+</tr>
+<tr>
+<td>Coarse pass without ASR (<code>visual</code>), 47-minute slide lecture, idle machine</td>
+<td>CPU build 112 s; CUDA build <strong>50 s</strong> after the cuDNN fix (177 s before it); decode alone 39.5 s. 247 frames read by OCR (824 to 843 lines), 168 SigLIP embeddings. Details in <code>MACHINE.md</code>.</td>
+</tr>
+<tr>
+<td>Full dataset (36.6 h, 30 videos, <code>coarse_only</code>), one process, CPU ONNX build, builds and tests competing for the CPU</td>
+<td>17,856 s = 4 h 58 min, 7× real time overall (5× on OCR-heavy slide decks, 23× on camera-heavy talks); 0 failures; index 1.06 GiB (187 MiB SQLite, 567 MiB thumbnails in 130,907 blobs). Per-video table below.</td>
+</tr>
+<tr>
+<td>Fine pass (<code>full</code>) on the 34-minute talk with Claude Sonnet 5</td>
+<td>17 scenes, 12 descriptions, 74 entities / 82 events, $0.63</td>
+</tr>
+<tr>
+<td>Fine pass over the whole dataset (36.6 h, 30 videos), CUDA build, machine shared with other jobs</td>
+<td>18,491 s = 5 h 8 min; <strong>$45.96</strong> ($24.02 VLM descriptions of 1,014 scenes, $21.94 entity/event extraction over 460 five-minute windows, 9 windows returned non-JSON and were skipped); 236 chapters, 5,074 entities with 9,116 mentions, 4,934 events; index 1.06 → 1.98 GiB. $1.26 per hour of video.</td>
+</tr>
+<tr>
+<td>Hybrid <code>vi search</code>, one-shot CLI</td>
+<td>1.5 to 2.4 s, of which about 1.3 s loads bge and the SigLIP text tower; the search itself under 30 ms</td>
+</tr>
+<tr>
+<td><code>vi ask</code> on the 34-minute talk</td>
+<td>3 tool calls, correct timestamps, $0.065, 14.6 s</td>
+</tr>
+</tbody>
+</table>
+<p>GPU utilisation during the dataset run: the A100 was used only by Whisper (about 4.5 GB, 60 to 100% while ASR requests run). ONNX Runtime ran on the CPU because the run started before the CUDA toolkit was installed; the CUDA build (<code>--features cuda</code>) landed the same night and, after fixing cuDNN's exhaustive per-shape algorithm search, cuts the visual pass from 112 s to 50 s on the test lecture. Re-indexing the dataset on the GPU build is the obvious next timing run (expected: bounded by decode and ASR, roughly 2 h for the 36.6 h).</p>
+<details>
+<summary>Per-video timings, dataset run (CPU ONNX build, loaded machine)</summary>
+
+| Video | Duration | Wall | × real time | asr | ocr | image_embed | shot_boundary | text_embed |
+|---|---|---|---|---|---|---|---|---|
+| Building Multimodal AI Agents From Scratch — Apoorva Joshi,  | 0:36:58 | 229 s | 10× | 207 | 859 | 133 | 45 | 1227 |
+| Evals 101 — Doug Guthrie, Braintrust | 0:48:31 | 301 s | 10× | 258 | 1453 | 183 | 51 | 1920 |
+| A2A & MCP Workshop: Automating Business Processes with LLMs  | 1:23:13 | 678 s | 7× | 417 | 1451 | 801 | 61 | 2236 |
+| RFT, DPO, SFT: Fine-tuning with OpenAI — Ilan Bigio, OpenAI | 1:46:14 | 2130 s | 3× | 652 | 35098 | 368 | 77 | 36160 |
+| Agentic AI MOOC / UC Berkeley CS294-196 Fall 2025 / Agentic  | 1:48:50 | 398 s | 16× | 583 | 3610 | 77 | 39 | 5225 |
+| Agentic AI MOOC / UC Berkeley CS294-196 Fall 2025 / Multi-Ag | 0:54:49 | 159 s | 21× | 320 | 675 | 42 | 18 | 1484 |
+| How to build world-class AI products — Sarah Sachs (AI lead  | 1:43:45 | 946 s | 7× | 556 | 10200 | 553 | 66 | 11214 |
+| Agentic AI MOOC / UC Berkeley CS294-196 Fall 2025 / Evolutio | 1:19:31 | 209 s | 23× | 428 | 1021 | 80 | 36 | 2147 |
+| Collaborating with Agents in your Software Dev Workflow - Jo | 1:04:06 | 752 s | 5× | 368 | 6221 | 486 | 44 | 6854 |
+| Strategies for LLM Evals (GuideLLM, lm-eval-harness, OpenAI  | 0:32:28 | 282 s | 7× | 177 | 1420 | 149 | 37 | 1740 |
+| Agentic AI MOOC / UC Berkeley CS294-196 Fall 2025 / Post-Tra | 1:17:28 | 225 s | 21× | 414 | 1117 | 13 | 14 | 2219 |
+| [Full Workshop] Reinforcement Learning, Kernels, Reasoning,  | 2:42:27 | 1490 s | 7× | 863 | 22663 | 220 | 65 | 24225 |
+| Shipping AI That Works: An Evaluation Framework for PMs – Am | 1:26:16 | 862 s | 6× | 457 | 6275 | 733 | 76 | 7109 |
+| Agentic AI MOOC / UC Berkeley CS294-196 Fall 2025 / Practica | 0:46:54 | 172 s | 16× | 252 | 841 | 168 | 41 | 1509 |
+| Agentic AI MOOC / UC Berkeley CS294-196 Fall 2025 / Predicta | 0:44:04 | 148 s | 18× | 258 | 1208 | 37 | 17 | 1875 |
+| VoiceVision RAG - Integrating Visual Document Intelligence w | 1:23:51 | 740 s | 7× | 503 | 10024 | 250 | 65 | 10898 |
+| The AI Engineer’s Guide to Raising VC — Dani Grant (Jam), Ch | 0:34:16 | 191 s | 11× | 197 | 580 | 47 | 6 | 922 |
+| Introduction to LLM serving with SGLang - Philip Kiely and Y | 0:43:42 | 524 s | 5× | 254 | 6882 | 114 | 35 | 7330 |
+| Agentic AI MOOC / UC Berkeley CS294-196 Fall 2025 / Autonomo | 1:01:42 | 590 s | 6× | 326 | 3443 | 469 | 103 | 4319 |
+| Agentic AI MOOC / UC Berkeley CS294-196 Fall 2025 / Training | 1:04:37 | 275 s | 14× | 366 | 742 | 121 | 23 | 1673 |
+| Agentic AI MOOC / UC Berkeley CS294-196 Fall 2025 / LLM Agen | 1:58:21 | 400 s | 18× | 623 | 2148 | 154 | 87 | 3839 |
+| ComfyUI Full Workshop — first workshop from ComfyAnonymous h | 0:51:25 | 499 s | 6× | 297 | 1281 | 595 | 31 | 1810 |
+| [Full Workshop] Building Conversational AI Agents - Thor Sch | 1:01:42 | 391 s | 9× | 347 | 3349 | 245 | 41 | 3971 |
+| How LLMs work for Web Devs: GPT in 600 lines of Vanilla JS - | 1:41:33 | 978 s | 6× | 567 | 8070 | 415 | 83 | 9065 |
+| Agentic AI MOOC / UC Berkeley CS294-196 F25 / Multi-Agent Sy | 0:58:58 | 224 s | 16× | 309 | 883 | 166 | 50 | 1719 |
+| Agentic AI MOOC / UC Berkeley CS294-196 Fall 2025 / AI Agent | 1:01:15 | 206 s | 18× | 327 | 1401 | 79 | 26 | 2272 |
+| From Mixture of Experts to Mixture of Agents with Super Fast | 0:53:15 | 431 s | 7× | 301 | 4421 | 119 | 38 | 4955 |
+| Full Workshop: Realtime Voice AI — Mark Backman, Daily | 1:09:40 | 722 s | 6× | 383 | 5963 | 559 | 47 | 6641 |
+| [Full Workshop] Vibe Coding at Scale: Customizing AI Assista | 1:20:38 | 1255 s | 4× | 541 | 23800 | 370 | 66 | 24694 |
+| Building Code First AI Agents with Azure AI Agent Service —  | 1:54:05 | 1447 s | 5× | 762 | 11034 | 759 | 106 | 12289 |
+| **30 videos** | 36:34:35 | 17856 s | 7× | | | | | |
+
+Columns after the speed: transcript spans written by `asr`, OCR lines, SigLIP frame embeddings (pHash-distinct frames), shots, and bge text embeddings (transcript + OCR spans). Generated by `scripts/index_log_timings.py`.
+
+</details>
+
+<p>Hosted-provider cost: the only paid calls were Anthropic (<code>claude-sonnet-5</code>) for the agent and the fine pass; figures are in the sections below and in each run's report line.</p>
+<h2 id="dev-set-results">Dev set results<a class="headerlink" href="#dev-set-results" title="Permanent link">&para;</a></h2>
+<p>Two dev sets over the 30 dataset videos (<code>dataset/</code>): 72 retrieval questions (65 transcript, 3 OCR, 4 visual) scored by <code>scripts/devset_eval.py</code> (<code>vi search</code>, k=5, a hit is a result within 30 s of the anchored ground truth), and 52 QA questions with accepted answer strings scored by <code>scripts/devset_qa_eval.py</code> (<code>vi ask --json</code>, budget $0.30 and 6 tool calls per question, <code>claude-sonnet-5</code> as <code>agent_llm</code>).</p>
+<h3 id="retrieval-vi-search-hybrid-bm25-per-kind-bge-siglip-rrf">Retrieval (<code>vi search</code>, hybrid: BM25 per kind + bge + SigLIP, RRF)<a class="headerlink" href="#retrieval-vi-search-hybrid-bm25-per-kind-bge-siglip-rrf" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>n</th>
+<th>video@1</th>
+<th>hit@1</th>
+<th>hit@5</th>
+<th>MRR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First run (FTS ANDs every word)</td>
+<td>64 scored, 8 anchors unresolved</td>
+<td>0.578</td>
+<td>0.344</td>
+<td>0.766</td>
+<td>0.502</td>
+</tr>
+<tr>
+<td><strong>After OR-ing terms with stopword removal</strong></td>
+<td>72</td>
+<td><strong>0.819</strong></td>
+<td><strong>0.583</strong></td>
+<td><strong>0.944</strong></td>
+<td><strong>0.724</strong></td>
+</tr>
+<tr>
+<td>transcript questions</td>
+<td>65</td>
+<td>0.831</td>
+<td>0.569</td>
+<td>0.954</td>
+<td>0.721</td>
+</tr>
+<tr>
+<td>OCR questions</td>
+<td>3</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>visual questions (SigLIP text-to-frame)</td>
+<td>4</td>
+<td>0.5</td>
+<td>0.5</td>
+<td>0.75</td>
+<td>0.562</td>
+</tr>
+</tbody>
+</table>
+<p>The first run's failure mode was structural, not a ranking problem: the FTS5 query required every word of the question, so BM25 returned nothing for almost every natural-language query and the fusion ran on the two vector lists alone. With OR-ed terms all four lists contribute to every hit (<code>lists</code> in the eval output). The four remaining misses are two right-video-wrong-minute cases (the question's wording matches a later restatement), one visual question whose frame ranks fourth, and one paraphrase ("collision rate" is spoken as "collisions") that neither BM25 nor bge bridges. Median <code>vi search</code> latency is 2.4 s as a one-shot CLI, of which about 2 s is process start and model load (SigLIP text tower and bge on CUDA); the search itself is tens of milliseconds and the Python binding pays the load once.</p>
+<h3 id="question-answering-vi-ask">Question answering (<code>vi ask</code>)<a class="headerlink" href="#question-answering-vi-ask" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Run</th>
+<th>accuracy</th>
+<th>cited</th>
+<th>citation video correct</th>
+<th>citation within the anchor</th>
+<th>cost / question</th>
+<th>tool calls / question</th>
+<th>median latency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent, first retrieval (AND-ed FTS)</td>
+<td>45/52 = <strong>0.865</strong></td>
+<td>0.942</td>
+<td>0.942</td>
+<td>0.712</td>
+<td>$0.060 ($3.10 total)</td>
+<td>2.46</td>
+<td>7.1 s</td>
+</tr>
+<tr>
+<td>Agent, OR-ed FTS + empty-answer retry</td>
+<td>50/52 = <strong>0.962</strong></td>
+<td>1.000</td>
+<td>1.000</td>
+<td>0.808</td>
+<td>$0.052 ($2.71 total)</td>
+<td>2.04</td>
+<td>6.6 s</td>
+</tr>
+<tr>
+<td>Retrieval-only baseline (one search, then answer)</td>
+<td>38/52 = <strong>0.731</strong></td>
+<td>0.750</td>
+<td>0.750</td>
+<td>0.635</td>
+<td>$0.017 ($0.90 total)</td>
+<td>1.00</td>
+<td>4.6 s</td>
+</tr>
+</tbody>
+</table>
+<p>The M2 target ("<code>idx.ask</code> answers the dev set at or above 80% with citations, retrieval-only baseline reported next to it") is met: 96.2% with the fixed retrieval against a 73.1% retrieval-only baseline (one search, then answer, no agent loop), at a third of the cost per question. The two remaining agent misses are real: it names Notion's "AI Writer" where the speaker's answer is meeting notes, and "covariance" where the lecture's metric is the collision rate (the same speech-to-text paraphrase gap that costs retrieval question q32). The baseline's 14 misses are mostly questions whose answer sits in a span the first search does not surface, which is what the agent's extra 1.04 tool calls per question buy. Three of the seven first-run misses were empty answers: the agent spent its six tool calls searching (the AND-ed FTS starved it of candidates), and the final no-tools turn came back with no text. The loop now asks once more, explicitly, before returning a partial answer. The other four misses are genuine: an answer that names the wrong product, one that stops short of the number asked for, and two where the accepted strings are stricter than the (arguably correct) paraphrase the model gave.</p>
+<h3 id="fine-index-against-coarse-index-2026-09-12">Fine index against coarse index (2026-09-12)<a class="headerlink" href="#fine-index-against-coarse-index-2026-09-12" title="Permanent link">&para;</a></h3>
+<p>After the fine pass (scene descriptions, chapters, entities and events over all 30 videos) the same two dev sets were re-run on the same index:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Retrieval hit@5</th>
+<th>Retrieval MRR</th>
+<th>video@1</th>
+<th>QA accuracy</th>
+<th>citation within anchor</th>
+<th>cost / question</th>
+<th>tool calls / question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coarse index</td>
+<td>0.944</td>
+<td>0.724</td>
+<td>0.819</td>
+<td>96.2%</td>
+<td>80.8%</td>
+<td>$0.052</td>
+<td>2.04</td>
+</tr>
+<tr>
+<td>Fine index</td>
+<td>0.889</td>
+<td>0.661</td>
+<td>0.708</td>
+<td>92.3%</td>
+<td>82.7%</td>
+<td>$0.057</td>
+<td>2.10</td>
+</tr>
+</tbody>
+</table>
+<p>The fine pass made retrieval on this dev set slightly <em>worse</em>: 16 questions ranked lower and 10 higher, and two QA questions flipped to wrong. The cause is structural, not a bug: the hybrid fusion adds a BM25 list over descriptions and description rows to the text-vector list with the same weight as transcript evidence, and on a transcript-anchored dev set (65 of 72 questions ask about something said) the description hits are plausible-but-wrong neighbours that dilute the transcript hits in reciprocal-rank fusion. The descriptions do help the questions they were built for (visual and summarising ones move up), and citation-in-anchor improved. The right fix is per-kind list weights tuned on a set that mixes question types, which is exactly the M4 sweep; until then <code>coarse_only</code> remains the default policy for lecture content, and <code>vi search --kinds</code> restricts the lists when the question type is known.</p>
+<h2 id="what-the-design-got-wrong-or-left-unclear">What the design got wrong or left unclear<a class="headerlink" href="#what-the-design-got-wrong-or-left-unclear" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Slide changes are not shots.</strong> The design lists <code>ShotBoundary</code> as the visual unit and <code>Ocr</code> as running "on distinct frames whose text-likelihood heuristic fires". On slide lectures a title change moves as many pixels as a sponsor-logo swap; no histogram or edge threshold separates them, and pHash of a white slide ignores its text. OCR now runs on a pixel-change gate and collapses repeated lines; slide changes surface as OCR spans, and chapters use OCR title changes. Shots stay true camera cuts.</li>
+<li><strong>Lance.</strong> <code>04-data-model.md</code> names Lance as the default vector store. Its current release pulls 689 crates (Arrow, DataFusion) into a workspace of about 250, for exact search over a few hundred thousand vectors that a flat memory-mapped file does in milliseconds. The flat store ships; Lance or usearch remain a drop-in behind the trait.</li>
+<li><strong>Text embeddings belong to the coarse pass.</strong> The design put <code>text_embed</code> in the fine pass, but hybrid search needs span vectors before any VLM runs. It moved.</li>
+<li><strong>Resume needed a replay hook.</strong> "Re-running with a different VLM re-runs only the VLM stage" is only true if cached producers can hand their stored outputs to a re-running consumer. Operators got <code>replay()</code>; operators whose outputs are pixels (<code>sample</code>) cannot replay, so anything needing frames re-decodes.</li>
+<li><strong>One 30 s ASR chunk per request wastes the GPU.</strong> The design's "30 s chunks with 1 s overlap" gives 17× real time; 120 s VAD segments that the batched server cuts itself give 29×.</li>
+<li><strong>Scenes need to split long shots.</strong> A static camera holds one shot for half an hour; the design's "scenes 20 s to 3 min" only holds if long shots are cut before grouping.</li>
+<li><strong>Tool results cannot carry images on OpenAI-shaped APIs</strong>, so <code>view</code> returns text and the grid follows as a user message; Anthropic and Gemini accept this too.</li>
+<li><strong>Claude 5 rejects <code>temperature</code>.</strong> The eval doc's "temperature 0 where the provider allows it" needs the adapter to omit the field for these models.</li>
+<li><strong>Sort comparators with tolerances panic.</strong> Rust's sort checks for total orders; the OCR reading-order sort tripped it on the first long video. Every float sort uses <code>total_cmp</code> now.</li>
+<li><strong>The kickoff assumed a 40 GB A100.</strong> This machine has 80 GB, so a 32B VLM fits in fp16 for the M4 A/B runs without quantisation.</li>
+</ol>
+<h2 id="open-items-carried-into-m2m4">Open items carried into M2/M4<a class="headerlink" href="#open-items-carried-into-m2m4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>~~Install a CUDA toolkit~~ Done 2026-09-11 after asking: CUDA 13.1 + cuDNN 9, <code>vi</code> built with <code>--features cuda</code>. The models run 10 to 35× faster per call on the GPU; the coarse pass is then bound by CPU video decode (no NVDEC: no <code>libnvcuvid</code>, and the corpus is AV1/VP9). See <code>MACHINE.md</code>.</li>
+<li>~~Python-side operators and policies~~ Done 2026-09-12 (<code>@vi.operator</code>, <code>vi.Policy</code>, inline policies). Still open: wheels verified in CI; the zero-copy frame view (frames are copied into NumPy today).</li>
+<li><code>Diarize</code>, <code>listen</code>, <code>find_similar_frames</code>.</li>
+<li>Format the local SSD if build times or temp files ever matter.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "content.code.copy", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
