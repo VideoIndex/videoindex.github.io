@@ -2,70 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://videoindex.github.io/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/api/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/python/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/quickstart/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/results/lvbench-f0.25-2026-09-13/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/results/lvbench-pilot-2026-09-12/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/results/minerva-f0.25-2026-09-13/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/sdk/01-overview/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/sdk/02-architecture/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/sdk/03-rust-boundary/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/sdk/04-data-model/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/sdk/05-indexing-pipeline/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/sdk/06-query-and-agents/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/sdk/07-model-providers/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/sdk/08-evaluation/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/sdk/09-sdk-and-apis/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
     <url>
          <loc>https://videoindex.github.io/sdk/10-roadmap/</loc>
-         <lastmod>2026-09-13</lastmod>
+         <lastmod>2026-09-14</lastmod>
     </url>
 </urlset>

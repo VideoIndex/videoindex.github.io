@@ -835,6 +835,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#reading-the-sample" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading the sample
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-this-stands-against-gemini-agentic-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where this stands against Gemini agentic video
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#accuracy-by-task-type" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -938,6 +960,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#reading-the-sample" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading the sample
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-this-stands-against-gemini-agentic-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where this stands against Gemini agentic video
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#accuracy-by-task-type" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -991,7 +1035,7 @@
 
 
 <h1 id="minerva-25-stratified-sample-seed-1">MINERVA: 25% stratified sample (seed 1)<a class="headerlink" href="#minerva-25-stratified-sample-seed-1" title="Permanent link">&para;</a></h1>
-<p>Generated 2026-09-13 by <code>eval/report.py</code> from 3 run file(s). Accuracy is exact match on the option letter; intervals are 95% Wilson. Costs are provider list prices per question; indexing cost is not included for the index-based configurations.</p>
+<p>Generated 2026-09-14 by <code>eval/report.py</code> from 4 run file(s). Accuracy is exact match on the option letter; intervals are 95% Wilson. Costs are provider list prices per question; indexing cost is not included for the index-based configurations.</p>
 <p><img alt="" src="../assets/minerva-f0.25-2026-09-13-pareto.svg" /></p>
 <table>
 <thead>
@@ -1014,27 +1058,27 @@
 <tr>
 <td>agent</td>
 <td>310</td>
-<td><strong>48.4%</strong></td>
-<td>42.9–53.9</td>
-<td>46</td>
-<td>$0.158</td>
-<td>42,640</td>
-<td>4.45</td>
-<td>24.1 s</td>
-<td>61.7 s</td>
+<td><strong>51.9%</strong></td>
+<td>46.4–57.4</td>
+<td>22</td>
+<td>$0.150</td>
+<td>40,830</td>
+<td>4.84</td>
+<td>24.2 s</td>
+<td>76.2 s</td>
 <td>14%</td>
 <td>—</td>
 </tr>
 <tr>
 <td>retrieval-only</td>
 <td>310</td>
-<td><strong>34.5%</strong></td>
-<td>29.4–40.0</td>
-<td>30</td>
-<td>$0.036</td>
-<td>9,093</td>
-<td>1.15</td>
-<td>11.2 s</td>
+<td><strong>37.1%</strong></td>
+<td>31.9–42.6</td>
+<td>11</td>
+<td>$0.034</td>
+<td>8,624</td>
+<td>1.10</td>
+<td>11.0 s</td>
 <td>33.0 s</td>
 <td>100%</td>
 <td>—</td>
@@ -1053,8 +1097,32 @@
 <td>100%</td>
 <td>—</td>
 </tr>
+<tr>
+<td>gemini-3.8-flash agentic video</td>
+<td>310</td>
+<td><strong>76.5%</strong></td>
+<td>71.4–80.8</td>
+<td>6</td>
+<td>$0.051</td>
+<td>45,673</td>
+<td>4.08</td>
+<td>16.2 s</td>
+<td>134.9 s</td>
+<td>100%</td>
+<td>—</td>
+</tr>
 </tbody>
 </table>
+<h2 id="reading-the-sample">Reading the sample<a class="headerlink" href="#reading-the-sample" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Scope.</strong> MINERVA (Google DeepMind, 1,291 five-way questions with reasoning traces over 188 YouTube videos averaging about 12 minutes). The 25% stratified sample is 323 questions; 310 had their videos on the machine (the rest are unavailable on YouTube). Every row answered the same 310 questions; chance is 20%. The VideoIndex rows include one re-ask of answers that came back without an option letter.</li>
+<li><strong>Gemini 3.8 Flash agentic video: 76.5%, against 51.9% for the VideoIndex agent</strong>, at a third of the cost per question ($0.051 vs $0.150) and lower median latency (16 s vs 24 s, with a long p95 tail of 135 s). This is a larger gap than on LVBench (79.1% vs 66.2%), and the task-type table says why: MINERVA asks for perception and short-range reasoning over short clips (counting 62% vs 38%, spatial perception 73% vs 36%, counterfactual 75% vs 12%, event occurrence 78% vs 49%), where an index of transcript, on-screen text and a base SigLIP embedding has little to offer and the agent's 3×3 <code>view</code> grids are too coarse. The gap narrows on the text-anchored types: reading 83% vs 72%, listening 88% vs 66%.</li>
+<li><strong>Against its own baselines the agent still leads</strong> (51.9% vs 41.3% uniform-32-frames and 37.1% retrieval-only), but at 7× the uniform baseline's cost; on these short videos 32 frames already cover the whole clip, so the baseline is cheap ($0.021) and competitive. Retrieval-only is weak here because most questions are not about what was said.</li>
+<li><strong>Empty answers persist.</strong> 22 of the agent's 310 answers (7%) had no option letter even after the re-ask (down from 46 before the answer-from-notes fallback and option-text matching); the uniform baseline had 35, Gemini 6. Unparsed answers count as wrong for every row.</li>
+<li><strong>What this says about the system.</strong> MINERVA is the benchmark for the visual side that LVBench only hinted at. The levers are the same, now with numbers behind them: a stronger frame model in the coarse pass, a whole-clip view step for short videos (the uniform baseline's 32 frames are exactly that), denser <code>view</code> grids when the question asks for counting or spatial layout, and VLM descriptions in the fine pass (this index was coarse-only; MINERVA's clips are short enough that describing every scene is cheap).</li>
+</ul>
+<h2 id="where-this-stands-against-gemini-agentic-video">Where this stands against Gemini agentic video<a class="headerlink" href="#where-this-stands-against-gemini-agentic-video" title="Permanent link">&para;</a></h2>
+<p>The <code>gemini-…</code> row is Google's Gemini 3.8 Flash with <code>processing: "agentic"</code> asked the same questions over the same video files through the Interactions API (run once and cached; it is not re-run with every matrix). Google's own announcement ("Introducing agentic video in Gemini", 2026-09-01) reports agentic mode against static whole-video processing on LongVideoBench as up to 88% fewer tokens, up to 66% lower cost and up to 7% higher accuracy, without absolute scores; the numbers here are absolute, on LVBench, and directly comparable across rows because every row answered the same questions under the same scoring. VideoIndex's per-question cost excludes indexing (done once per video); Gemini's per-question cost is the whole cost. Both systems are scored with the same letter parser.</p>
 <h2 id="accuracy-by-task-type">Accuracy by task type<a class="headerlink" href="#accuracy-by-task-type" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1063,98 +1131,114 @@
 <th>agent</th>
 <th>retrieval-only</th>
 <th>uniform-32 (claude-sonnet-5)</th>
+<th>gemini-3.8-flash agentic video</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Cause and Effect</td>
-<td>36% (n=11)</td>
+<td>55% (n=11)</td>
 <td>64% (n=11)</td>
 <td>45% (n=11)</td>
+<td>91% (n=11)</td>
 </tr>
 <tr>
 <td>Counterfactual</td>
 <td>12% (n=8)</td>
 <td>0% (n=8)</td>
 <td>25% (n=8)</td>
+<td>75% (n=8)</td>
 </tr>
 <tr>
 <td>Counting</td>
-<td>33% (n=63)</td>
+<td>38% (n=63)</td>
 <td>21% (n=63)</td>
 <td>30% (n=63)</td>
+<td>62% (n=63)</td>
 </tr>
 <tr>
 <td>Event Occurence</td>
-<td>44% (n=45)</td>
+<td>49% (n=45)</td>
+<td>40% (n=45)</td>
 <td>38% (n=45)</td>
-<td>38% (n=45)</td>
+<td>78% (n=45)</td>
 </tr>
 <tr>
 <td>Goal Reasoning</td>
 <td>67% (n=3)</td>
 <td>67% (n=3)</td>
 <td>33% (n=3)</td>
+<td>67% (n=3)</td>
 </tr>
 <tr>
 <td>Listening</td>
+<td>66% (n=32)</td>
+<td>56% (n=32)</td>
 <td>62% (n=32)</td>
-<td>50% (n=32)</td>
-<td>62% (n=32)</td>
+<td>88% (n=32)</td>
 </tr>
 <tr>
 <td>Numerical Reasoning</td>
-<td>50% (n=12)</td>
-<td>25% (n=12)</td>
+<td>58% (n=12)</td>
 <td>33% (n=12)</td>
+<td>33% (n=12)</td>
+<td>92% (n=12)</td>
 </tr>
 <tr>
 <td>Object Recognition</td>
 <td>64% (n=56)</td>
-<td>41% (n=56)</td>
+<td>45% (n=56)</td>
 <td>54% (n=56)</td>
+<td>79% (n=56)</td>
 </tr>
 <tr>
 <td>Reading</td>
-<td>69% (n=29)</td>
-<td>34% (n=29)</td>
+<td>72% (n=29)</td>
+<td>38% (n=29)</td>
 <td>41% (n=29)</td>
+<td>83% (n=29)</td>
 </tr>
 <tr>
 <td>Situational Awareness</td>
 <td>57% (n=7)</td>
 <td>57% (n=7)</td>
 <td>29% (n=7)</td>
+<td>86% (n=7)</td>
 </tr>
 <tr>
 <td>Spatial Perception</td>
 <td>36% (n=11)</td>
+<td>36% (n=11)</td>
 <td>27% (n=11)</td>
-<td>27% (n=11)</td>
+<td>73% (n=11)</td>
 </tr>
 <tr>
 <td>State Changes</td>
 <td>67% (n=3)</td>
 <td>0% (n=3)</td>
 <td>67% (n=3)</td>
+<td>67% (n=3)</td>
 </tr>
 <tr>
 <td>Temporal Reasoning</td>
-<td>33% (n=30)</td>
+<td>37% (n=30)</td>
 <td>30% (n=30)</td>
 <td>37% (n=30)</td>
+<td>73% (n=30)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="tool-call-profiles">Tool-call profiles<a class="headerlink" href="#tool-call-profiles" title="Permanent link">&para;</a></h2>
-<p><strong>agent</strong>: <code>search &gt; search &gt; view</code> ×35; <code>view</code> ×22; <code>search &gt; view</code> ×12; <code>search &gt; search &gt; view &gt; view &gt; view &gt; view</code> ×10; <code>search &gt; search</code> ×10; <code>search &gt; search &gt; view &gt; view</code> ×9; <code>view &gt; view</code> ×7; <code>search &gt; search &gt; get_transcript &gt; view</code> ×4</p>
+<p><strong>agent</strong>: <code>search &gt; search &gt; view</code> ×35; <code>view</code> ×22; <code>search &gt; view</code> ×10; <code>search &gt; search</code> ×10; <code>search &gt; search &gt; view &gt; view &gt; view &gt; view</code> ×10; <code>view &gt; view</code> ×7; <code>search &gt; search &gt; view &gt; view</code> ×7; <code>search &gt; search &gt; search &gt; search &gt; search &gt; view</code> ×4</p>
 <p><strong>retrieval-only</strong>: <code>search</code> ×310</p>
 <p><strong>uniform-32 (claude-sonnet-5)</strong>: <code>(none)</code> ×310</p>
+<p><strong>gemini-3.8-flash agentic video</strong>: <code>processing_call×2</code> ×78; <code>processing_call×1</code> ×55; <code>processing_call×3</code> ×46; <code>processing_call×4</code> ×40; <code>processing_call×6</code> ×26; <code>processing_call×5</code> ×18; <code>processing_call×9</code> ×10; <code>processing_call×7</code> ×9</p>
 <h2 id="runs">Runs<a class="headerlink" href="#runs" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>agent</strong>: <code>/data/videoindex/eval/runs/minerva-f0.25-s1-agent.json</code> — {"benchmark": "minerva", "policy": "agent", "budget_usd": 0.5, "budget_tokens": 120000, "max_tool_calls": 6, "sample": 323, "fraction": 0.25, "seed": 1, "skipped_not_indexed": 13, "vi_version": "vi 0.1.0", "started": "2026-09-13T20:01:43Z"}</li>
-<li><strong>retrieval-only</strong>: <code>/data/videoindex/eval/runs/minerva-f0.25-s1-retrieval-only.json</code> — {"benchmark": "minerva", "policy": "retrieval-only", "budget_usd": 0.5, "budget_tokens": 120000, "max_tool_calls": 6, "sample": 323, "fraction": 0.25, "seed": 1, "skipped_not_indexed": 13, "vi_version": "vi 0.1.0", "started": "2026-09-13T20:49:28Z"}</li>
+<li><strong>agent</strong>: <code>/data/videoindex/eval/runs/minerva-f0.25-s1-agent.json</code> — {"benchmark": "minerva", "policy": "agent", "budget_usd": 0.5, "budget_tokens": 120000, "max_tool_calls": 6, "sample": 323, "fraction": 0.25, "seed": 1, "skipped_not_indexed": 13, "vi_version": "vi 0.1.0", "started": "2026-09-14T00:31:11Z"}</li>
+<li><strong>retrieval-only</strong>: <code>/data/videoindex/eval/runs/minerva-f0.25-s1-retrieval-only.json</code> — {"benchmark": "minerva", "policy": "retrieval-only", "budget_usd": 0.5, "budget_tokens": 120000, "max_tool_calls": 6, "sample": 323, "fraction": 0.25, "seed": 1, "skipped_not_indexed": 13, "vi_version": "vi 0.1.0", "started": "2026-09-14T00:44:31Z"}</li>
 <li><strong>uniform-32 (claude-sonnet-5)</strong>: <code>/data/videoindex/eval/runs/minerva-f0.25-s1-uniform-32.json</code> — {"benchmark": "minerva", "policy": "uniform-32", "model": "claude-sonnet-5", "frames": 32, "transcript": true, "sample": 323, "fraction": 0.25, "seed": 1, "started": "2026-09-13T21:06:31Z"}</li>
+<li><strong>gemini-3.8-flash agentic video</strong>: <code>/data/videoindex/eval/runs/minerva-f0.25-s1-gemini-3.8-flash-agentic.json</code> — {"benchmark": "minerva", "policy": "gemini-agentic", "model": "gemini-3.8-flash", "mode": "agentic", "thinking": null, "sample": 323, "fraction": 0.25, "seed": 1, "started": "2026-09-13T23:29:17Z"}</li>
 </ul>
 <p>Questions per run: up to 310. Benchmark videos are public YouTube content and may be in model training data; read per-configuration deltas rather than absolute scores.</p>
 
