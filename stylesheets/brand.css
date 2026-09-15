@@ -1,0 +1,26 @@
+/* VideoIndex brand over Material for MkDocs. Palette from the logo kit (vi_internal/brand):
+   navy ink #0A2347, blue accent #3186E9, accent on dark #5FA7FF, paper #EFF6FF. */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #0a2347;
+  --md-primary-fg-color--light: #143766;
+  --md-primary-fg-color--dark: #061a36;
+  --md-primary-bg-color: #eff6ff;
+  --md-primary-bg-color--light: rgba(239, 246, 255, 0.7);
+  --md-accent-fg-color: #3186e9;
+  --md-accent-fg-color--transparent: rgba(49, 134, 233, 0.1);
+  --md-accent-bg-color: #eff6ff;
+  --md-typeset-a-color: #2a6fc9;
+}
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #0a2347;
+  --md-primary-fg-color--light: #143766;
+  --md-primary-fg-color--dark: #061a36;
+  --md-accent-fg-color: #5fa7ff;
+  --md-accent-fg-color--transparent: rgba(95, 167, 255, 0.1);
+  --md-typeset-a-color: #5fa7ff;
+}
+/* header mark: one bracket of clear space, no rounded pill */
+.md-header__button.md-logo { padding: 0.4rem 0.2rem 0.4rem 0; margin: 0.2rem 0.4rem 0.2rem 0.2rem; }
+.md-header__button.md-logo img, .md-header__button.md-logo svg { height: 1.4rem; width: 1.4rem; }
+/* lowercase mono site title next to the mark, matching the lockup */
+.md-header__topic:first-child .md-ellipsis { font-family: "IBM Plex Mono", ui-monospace, monospace; font-weight: 500; letter-spacing: -0.035em; text-transform: lowercase; }
