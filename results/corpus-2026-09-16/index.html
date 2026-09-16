@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://videoindex.github.io/sdk/07-model-providers/">
+        <link rel="canonical" href="https://videoindex.github.io/results/corpus-2026-09-16/">
       
       
-        <link rel="prev" href="../06-query-and-agents/">
+        <link rel="prev" href="../../sdk/09-sdk-and-apis/">
       
       
-        <link rel="next" href="../08-evaluation/">
+        <link rel="next" href="../lvbench-f0.25-2026-09-13/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Model providers - VideoIndex SDK</title>
+        <title>Library-wide questions (corpus set) - VideoIndex SDK</title>
       
     
     
@@ -59,7 +59,7 @@
 
     
     
-  <meta property="og:title" content="Model providers · VideoIndex SDK" />
+  <meta property="og:title" content="Library-wide questions (corpus set) · VideoIndex SDK" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://videoindex.github.io/assets/brand/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#07-model-providers" class="md-skip">
+        <a href="#corpus-qa-questions-that-span-the-whole-library" class="md-skip">
           Skip to content
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Model providers
+              Library-wide questions (corpus set)
             
           </span>
         </div>
@@ -373,8 +373,6 @@
       
   
   
-    
-  
   
   
     
@@ -387,11 +385,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -412,7 +410,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -430,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-overview/" class="md-nav__link">
+      <a href="../../sdk/01-overview/" class="md-nav__link">
         
   
   
@@ -458,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-architecture/" class="md-nav__link">
+      <a href="../../sdk/02-architecture/" class="md-nav__link">
         
   
   
@@ -486,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-rust-boundary/" class="md-nav__link">
+      <a href="../../sdk/03-rust-boundary/" class="md-nav__link">
         
   
   
@@ -514,7 +512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-data-model/" class="md-nav__link">
+      <a href="../../sdk/04-data-model/" class="md-nav__link">
         
   
   
@@ -542,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-indexing-pipeline/" class="md-nav__link">
+      <a href="../../sdk/05-indexing-pipeline/" class="md-nav__link">
         
   
   
@@ -570,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-query-and-agents/" class="md-nav__link">
+      <a href="../../sdk/06-query-and-agents/" class="md-nav__link">
         
   
   
@@ -595,37 +593,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Model providers
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../sdk/07-model-providers/" class="md-nav__link">
         
   
   
@@ -641,103 +612,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#capability-traits" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Capability traits
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#capabilities-negotiation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Capabilities negotiation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adapters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adapters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#provider-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Provider configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cross-cutting-behavior-in-vi-providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross-cutting behavior in vi-providers
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ab-evaluation-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A/B evaluation support
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#local-versus-remote-decision-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Local versus remote decision guide
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -750,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-evaluation/" class="md-nav__link">
+      <a href="../../sdk/08-evaluation/" class="md-nav__link">
         
   
   
@@ -778,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../09-sdk-and-apis/" class="md-nav__link">
+      <a href="../../sdk/09-sdk-and-apis/" class="md-nav__link">
         
   
   
@@ -810,8 +684,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -822,11 +698,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -847,7 +723,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -862,10 +738,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../results/corpus-2026-09-16/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Library-wide questions (corpus set)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -881,6 +784,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quality-by-question-kind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality by question kind
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-this-stands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where this stands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-question-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-question results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runs
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -893,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../results/lvbench-f0.25-2026-09-13/" class="md-nav__link">
+      <a href="../lvbench-f0.25-2026-09-13/" class="md-nav__link">
         
   
   
@@ -921,7 +888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../results/minerva-f0.25-2026-09-13/" class="md-nav__link">
+      <a href="../minerva-f0.25-2026-09-13/" class="md-nav__link">
         
   
   
@@ -949,7 +916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../results/lvbench-pilot-2026-09-12/" class="md-nav__link">
+      <a href="../lvbench-pilot-2026-09-12/" class="md-nav__link">
         
   
   
@@ -977,7 +944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../results/onehour_videoqa-full-2026-09-14/" class="md-nav__link">
+      <a href="../onehour_videoqa-full-2026-09-14/" class="md-nav__link">
         
   
   
@@ -1032,10 +999,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#capability-traits" class="md-nav__link">
+  <a href="#quality-by-question-kind" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Capability traits
+        Quality by question kind
       
     </span>
   </a>
@@ -1043,10 +1010,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#capabilities-negotiation" class="md-nav__link">
+  <a href="#where-this-stands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Capabilities negotiation
+        Where this stands
       
     </span>
   </a>
@@ -1054,10 +1021,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adapters" class="md-nav__link">
+  <a href="#per-question-results" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adapters
+        Per-question results
       
     </span>
   </a>
@@ -1065,43 +1032,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#provider-configuration" class="md-nav__link">
+  <a href="#runs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provider configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cross-cutting-behavior-in-vi-providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross-cutting behavior in vi-providers
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ab-evaluation-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A/B evaluation support
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#local-versus-remote-decision-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Local versus remote decision guide
+        Runs
       
     </span>
   </a>
@@ -1128,209 +1062,503 @@
   
 
 
-<h1 id="07-model-providers">07. Model providers<a class="headerlink" href="#07-model-providers" title="Permanent link">&para;</a></h1>
-<p>VideoIndex never depends on a specific model. Every model capability is a Rust trait; concrete adapters implement them; configuration selects which adapter serves which role. The same Index can be built with one set of providers and queried with another, and the eval harness sweeps configurations to compare them.</p>
-<h2 id="capability-traits">Capability traits<a class="headerlink" href="#capability-traits" title="Permanent link">&para;</a></h2>
+<h1 id="corpus-qa-questions-that-span-the-whole-library">Corpus QA: questions that span the whole library<a class="headerlink" href="#corpus-qa-questions-that-span-the-whole-library" title="Permanent link">&para;</a></h1>
+<p>Generated 2026-09-16 by <code>eval/corpus_report.py</code> from 5 run file(s) over the 28-question corpus set (<code>eval/data/corpus/questions.json</code>) on the 30-video <code>dataset</code> index.</p>
+<p>Every system answered the same questions with the same answer format. A judge model (Claude Opus 5) turned each free-text answer into structure: the catalog videos it names, the timestamps it gives, and which key facts it states. Scoring after that is deterministic and identical for every system: set precision / recall / F1 of named videos against the expected set (videos with only an on-screen mention, or listed as ambiguous, count neither way), the share of cited timestamps within 90 s of a real mention in the index, key-fact coverage, and a per-question quality score (mention → F1; topic → mean of F1 and facts; synthesis → 0.3 F1 + 0.7 facts; whole-library → facts; nothing-matches → 1 unless a video is invented). Costs are provider list prices for every call a question needed; VideoIndex's costs exclude indexing (done once per video), Gemini's are the whole cost.</p>
+<p><img alt="" src="../assets/corpus-2026-09-16-headline.svg" /></p>
+<p><img alt="" src="../assets/corpus-2026-09-16-quality-by-kind.svg" /></p>
 <table>
 <thead>
 <tr>
-<th>Trait</th>
-<th>Purpose</th>
-<th>Key method</th>
+<th>Configuration</th>
+<th>n</th>
+<th>quality</th>
+<th>precision</th>
+<th>recall</th>
+<th>F1</th>
+<th>timestamps near a mention</th>
+<th>facts covered</th>
+<th>wrong videos</th>
+<th>missed videos</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>Vlm</code></td>
-<td>Describe or answer over images, frame grids, or native video clips</td>
-<td><code>generate(VlmRequest) -&gt; Stream&lt;VlmEvent&gt;</code></td>
+<td>VideoIndex agent (claude-sonnet-5)</td>
+<td>28</td>
+<td><strong>79%</strong></td>
+<td>94%</td>
+<td>82%</td>
+<td>85%</td>
+<td>79% (n=251)</td>
+<td>74%</td>
+<td>8</td>
+<td>23</td>
 </tr>
 <tr>
-<td><code>Llm</code></td>
-<td>Text-only reasoning, tool use for the agent loop, entity extraction</td>
-<td><code>generate(LlmRequest) -&gt; Stream&lt;LlmEvent&gt;</code></td>
+<td>VideoIndex agent (gemini-3.8-flash)</td>
+<td>28</td>
+<td><strong>81%</strong></td>
+<td>98%</td>
+<td>87%</td>
+<td>91%</td>
+<td>92% (n=192)</td>
+<td>67%</td>
+<td>2</td>
+<td>14</td>
 </tr>
 <tr>
-<td><code>Asr</code></td>
-<td>Speech to timed text</td>
-<td><code>transcribe(AudioChunk, AsrOptions) -&gt; Vec&lt;TranscriptSpan&gt;</code></td>
+<td>VideoIndex retrieval-only (claude-sonnet-5)</td>
+<td>28</td>
+<td><strong>51%</strong></td>
+<td>79%</td>
+<td>49%</td>
+<td>57%</td>
+<td>88% (n=80)</td>
+<td>51%</td>
+<td>0</td>
+<td>55</td>
 </tr>
 <tr>
-<td><code>Ocr</code></td>
-<td>Text and boxes from a frame</td>
-<td><code>read(Image) -&gt; Vec&lt;OcrSpan&gt;</code></td>
+<td>VideoIndex agent (claude-sonnet-5, 1,500-token answer cap)</td>
+<td>26</td>
+<td><strong>75%</strong></td>
+<td>90%</td>
+<td>78%</td>
+<td>80%</td>
+<td>86% (n=199)</td>
+<td>76%</td>
+<td>8</td>
+<td>32</td>
 </tr>
 <tr>
-<td><code>TextEmbedder</code></td>
-<td>Text to vector</td>
-<td><code>embed(&amp;[String]) -&gt; Vec&lt;Vector&gt;</code></td>
-</tr>
-<tr>
-<td><code>ImageEmbedder</code></td>
-<td>Image and text to a shared space</td>
-<td><code>embed_images(&amp;[Image])</code>, <code>embed_text(&amp;[String])</code></td>
-</tr>
-<tr>
-<td><code>Reranker</code></td>
-<td>Score (query, passage) pairs</td>
-<td><code>rerank(query, &amp;[String]) -&gt; Vec&lt;f32&gt;</code></td>
+<td>Gemini agentic video (gemini-3.8-flash, 3×10 videos + merge)</td>
+<td>28</td>
+<td><strong>93%</strong></td>
+<td>99%</td>
+<td>97%</td>
+<td>97%</td>
+<td>86% (n=334)</td>
+<td>84%</td>
+<td>1</td>
+<td>3</td>
 </tr>
 </tbody>
 </table>
-<p>One adapter may implement several traits. A Gemini adapter implements <code>Vlm</code>, <code>Llm</code>, <code>Asr</code> (via audio input), <code>Ocr</code> (via a prompt), and <code>TextEmbedder</code>.</p>
-<h2 id="capabilities-negotiation">Capabilities negotiation<a class="headerlink" href="#capabilities-negotiation" title="Permanent link">&para;</a></h2>
-<p>Adapters report what they can do so operators and policies adapt without special-casing vendors:</p>
-<div class="highlight"><pre><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">VlmCapabilities</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">native_video</span><span class="p">:</span><span class="w"> </span><span class="kt">bool</span><span class="p">,</span><span class="w">         </span><span class="c1">// accepts a video clip, not just images</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">native_audio</span><span class="p">:</span><span class="w"> </span><span class="kt">bool</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">max_images_per_request</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">max_image_pixels</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">supports_tools</span><span class="p">:</span><span class="w"> </span><span class="kt">bool</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">supports_streaming</span><span class="p">:</span><span class="w"> </span><span class="kt">bool</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">supports_json_schema</span><span class="p">:</span><span class="w"> </span><span class="kt">bool</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">context_tokens</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">price</span><span class="p">:</span><span class="w"> </span><span class="nc">Pricing</span><span class="p">,</span><span class="w">             </span><span class="c1">// per input/output token, per image, per second of video</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Examples of how this is used:
-- <code>vlm_describe</code> sends a native clip to a provider with <code>native_video</code>, and a 3×3 frame grid otherwise.
-- The agent's <code>view</code> tool sizes the grid to <code>max_image_pixels</code> and <code>max_images_per_request</code>.
-- The policy sees <code>price</code> so it can weigh a <code>view</code> against remaining budget.</p>
-<h2 id="adapters">Adapters<a class="headerlink" href="#adapters" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Adapter</th>
-<th>Traits</th>
-<th>Notes</th>
+<th>Configuration</th>
+<th>cost / q</th>
+<th>cost p95</th>
+<th>total</th>
+<th>latency p50</th>
+<th>latency p95</th>
+<th>tool calls / q</th>
+<th>tokens / q</th>
+<th>budget hit</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>openai_compat</code></td>
-<td>Vlm, Llm, Asr, TextEmbedder</td>
-<td>Chat completions, embeddings, audio transcription endpoints. Covers OpenAI, vLLM, Ollama, LM Studio, llama.cpp server, Together, Groq, and Whisper servers. The single most important adapter: any open model served by vLLM plugs in here.</td>
+<td>VideoIndex agent (claude-sonnet-5)</td>
+<td>$0.243</td>
+<td>$0.45</td>
+<td>$6.81</td>
+<td>31 s</td>
+<td>60 s</td>
+<td>8.0</td>
+<td>70,303</td>
+<td>2</td>
 </tr>
 <tr>
-<td><code>gemini</code></td>
-<td>Vlm (native video, audio), Llm, Asr, TextEmbedder</td>
-<td>Gemini API with file upload for clips longer than inline limits.</td>
+<td>VideoIndex agent (gemini-3.8-flash)</td>
+<td>$0.129</td>
+<td>$0.17</td>
+<td>$3.61</td>
+<td>25 s</td>
+<td>44 s</td>
+<td>11.4</td>
+<td>155,496</td>
+<td>1</td>
 </tr>
 <tr>
-<td><code>anthropic</code></td>
-<td>Vlm (images), Llm</td>
-<td>Claude models. Frame grids for video.</td>
+<td>VideoIndex retrieval-only (claude-sonnet-5)</td>
+<td>$0.045</td>
+<td>$0.06</td>
+<td>$1.25</td>
+<td>13 s</td>
+<td>29 s</td>
+<td>1.0</td>
+<td>10,639</td>
+<td>0</td>
 </tr>
 <tr>
-<td><code>onnx_local</code></td>
-<td>ImageEmbedder, TextEmbedder, Ocr, plus VAD internally</td>
-<td>In-process via ONNX Runtime: SigLIP or CLIP, a small text embedder, RapidOCR, Silero VAD. CPU by default, CUDA or CoreML execution providers when available.</td>
+<td>VideoIndex agent (claude-sonnet-5, 1,500-token answer cap)</td>
+<td>$0.266</td>
+<td>$0.44</td>
+<td>$6.93</td>
+<td>33 s</td>
+<td>64 s</td>
+<td>8.2</td>
+<td>78,828</td>
+<td>11</td>
 </tr>
 <tr>
-<td><code>candle_local</code></td>
-<td>ImageEmbedder, TextEmbedder</td>
-<td>Alternative pure-Rust backend for platforms where ONNX Runtime is awkward.</td>
-</tr>
-<tr>
-<td><code>whisper_local</code></td>
-<td>Asr</td>
-<td>whisper.cpp via its server or bindings, for fully offline indexing. Not built: the faster-whisper server in <code>scripts/asr-server/</code> is reached through <code>openai_compat</code>, which covers this case.</td>
-</tr>
-<tr>
-<td><code>paddleocr_sidecar</code></td>
-<td>Ocr</td>
-<td>Optional HTTP sidecar for higher-quality OCR.</td>
+<td>Gemini agentic video (gemini-3.8-flash, 3×10 videos + merge)</td>
+<td>$0.406</td>
+<td>$1.19</td>
+<td>$11.37</td>
+<td>45 s</td>
+<td>188 s</td>
+<td>31.8</td>
+<td>165,591</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
-<p>Status (2026-09-11): <code>openai_compat</code> (ASR, chat, embeddings), <code>anthropic</code>, <code>gemini</code> and <code>onnx_local</code> (SigLIP, bge-small, RapidOCR; Silero VAD is used by the <code>vad</code> operator directly) are implemented in <code>vi-providers</code> and <code>vi-perceive</code>. Gemini's file upload for clips over the inline limit, <code>candle_local</code> and <code>paddleocr_sidecar</code> are not. Adapters that live outside <code>vi-providers</code> (<code>onnx_local</code>) register through <code>ProviderRegistry::register_factory</code>.</p>
-<p>Adding an adapter is one crate module implementing the traits and a capabilities struct. No other crate changes.</p>
-<h2 id="provider-configuration">Provider configuration<a class="headerlink" href="#provider-configuration" title="Permanent link">&para;</a></h2>
-<p>Roles bind a capability to an adapter and model. The eval harness varies these.</p>
-<div class="highlight"><pre><span></span><code><span class="k">[providers.gemini]</span>
-<span class="n">adapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"gemini"</span>
-<span class="n">api_key_env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"GEMINI_API_KEY"</span>
-
-<span class="k">[providers.vllm_qwen]</span>
-<span class="n">adapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"openai_compat"</span>
-<span class="n">base_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"http://localhost:8000/v1"</span>
-<span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Qwen/Qwen2.5-VL-32B-Instruct"</span>
-
-<span class="k">[providers.local]</span>
-<span class="n">adapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"onnx_local"</span>
-<span class="n">image_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"siglip-so400m-patch14-384"</span>
-<span class="n">text_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"bge-small-en-v1.5"</span>
-
-<span class="k">[roles]</span>
-<span class="n">vlm_describe</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">provider</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"gemini"</span><span class="p">,</span><span class="w">    </span><span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"gemini-2.5-flash"</span><span class="w"> </span><span class="p">}</span>
-<span class="n">agent_llm</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">provider</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"anthropic"</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"claude-sonnet-5"</span><span class="w"> </span><span class="p">}</span>
-<span class="n">asr</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">provider</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"openai_compat"</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"whisper-large-v3"</span><span class="p">,</span><span class="w"> </span><span class="n">base_url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"http://localhost:9000/v1"</span><span class="w"> </span><span class="p">}</span>
-<span class="n">ocr</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">provider</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"local"</span><span class="w"> </span><span class="p">}</span>
-<span class="n">text_embed</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">provider</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"local"</span><span class="w"> </span><span class="p">}</span>
-<span class="n">image_embed</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">provider</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"local"</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-<p>Roles used by the pipeline: <code>asr</code>, <code>ocr</code>, <code>image_embed</code>, <code>text_embed</code>, <code>vlm_describe</code>, <code>extract_llm</code>. Roles used by the agent: <code>agent_llm</code>, <code>agent_vlm</code> (defaults to <code>agent_llm</code> if multimodal), <code>reranker</code>.</p>
-<h2 id="cross-cutting-behavior-in-vi-providers">Cross-cutting behavior in <code>vi-providers</code><a class="headerlink" href="#cross-cutting-behavior-in-vi-providers" title="Permanent link">&para;</a></h2>
+<p>Wrong videos: named videos outside the expected and acceptable sets (including invented titles), summed over all questions. Missed videos: expected videos not named. Latency is wall-clock per question as the runner saw it; Gemini's batches run in parallel, and the sequential sum is given in the runs section. Budget hit: answers cut short by the token, cost or time budget.</p>
+<p><img alt="" src="../assets/corpus-2026-09-16-set-metrics.svg" /></p>
+<p><img alt="" src="../assets/corpus-2026-09-16-quality-vs-cost.svg" /></p>
+<p><img alt="" src="../assets/corpus-2026-09-16-latency.svg" /></p>
+<h2 id="quality-by-question-kind">Quality by question kind<a class="headerlink" href="#quality-by-question-kind" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>VideoIndex agent (claude-sonnet-5)</th>
+<th>VideoIndex agent (gemini-3.8-flash)</th>
+<th>VideoIndex retrieval-only (claude-sonnet-5)</th>
+<th>VideoIndex agent (claude-sonnet-5, 1,500-token answer cap)</th>
+<th>Gemini agentic video (gemini-3.8-flash, 3×10 videos + merge)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>which videos mention X (n=13)</td>
+<td>78%</td>
+<td>87%</td>
+<td>33%</td>
+<td>70%</td>
+<td>96%</td>
+</tr>
+<tr>
+<td>moments about a topic (n=8)</td>
+<td>85%</td>
+<td>84%</td>
+<td>61%</td>
+<td>89%</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>cross-video synthesis (n=3)</td>
+<td>94%</td>
+<td>82%</td>
+<td>88%</td>
+<td>79%</td>
+<td>88%</td>
+</tr>
+<tr>
+<td>whole-library summary (n=3)</td>
+<td>42%</td>
+<td>43%</td>
+<td>46%</td>
+<td>32%</td>
+<td>92%</td>
+</tr>
+<tr>
+<td>nothing matches (n=1)</td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../assets/corpus-2026-09-16-per-question.svg" /></p>
+<h2 id="where-this-stands">Where this stands<a class="headerlink" href="#where-this-stands" title="Permanent link">&para;</a></h2>
+<p>The best VideoIndex configuration (VideoIndex agent (gemini-3.8-flash)) scores 81% quality against 93% for Gemini agentic video (gemini-3.8-flash, 3×10 videos + merge), at $0.129 against $0.406 per question (3.1×) and a median 25 s against 45 s. VideoIndex named 2 wrong videos and missed 14; Gemini named 1 wrong and missed 3. Timestamps landed near a real mention 92% of the time for VideoIndex and 86% for Gemini.</p>
+<p>Gemini's cost is uneven: 4 of 28 questions cost more than $1 (q01 (mention, $2.82), q02 (mention, $2.52), q20 (topic, $1.19), q18 (topic, $1.08)); on those the agent loaded transcript for most of the library and spent several hundred thousand thinking tokens, while the median question cost $0.11. VideoIndex's cost is flat because the index answers a library-wide scan with one full-text query; its agent's lost points are mostly missed videos rather than wrong ones.</p>
+<p>The row 'VideoIndex agent (claude-sonnet-5, 1,500-token answer cap)' is the same agent before this evaluation: each model turn was capped at 1,500 output tokens, which is enough for a single-video answer but truncated list answers over the library (11 of 26 answers cut short, two returned empty). The cap became the <code>max_answer_tokens</code> budget field (default 4,000) on 2026-09-16 and every other VideoIndex row uses it.</p>
+<p>Gemini's agentic video mode takes at most ten videos per request and the library does not fit its context window in static mode, so the Gemini row is a map-reduce: three agentic requests of ten videos each, run in parallel, and a text-only merge by the same model. That is the closest the public API comes to a whole-library question; a product built on it would have to add exactly the kind of index VideoIndex maintains. Gemini also receives the video titles in the prompt, as VideoIndex's agent does in its system prompt, so metadata questions are fair to both.</p>
+<h2 id="per-question-results">Per-question results<a class="headerlink" href="#per-question-results" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>question</th>
+<th>expected</th>
+<th>VI agent (Sonnet 5)</th>
+<th>VI agent (Gemini 3.8 Flash)</th>
+<th>VI retrieval-only (Sonnet 5)</th>
+<th>VI agent (Sonnet 5, 1.5k cap)</th>
+<th>Gemini agentic video (3×10 + merge)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>q01</strong> (mention) Find all videos that mention Anthropic.</td>
+<td>9</td>
+<td>0.80 (3 missed)</td>
+<td>0.88 (2 missed)</td>
+<td>0.00 (9 missed)</td>
+<td>0.00 (9 missed)</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q02</strong> (mention) Which videos mention DeepSeek (any DeepSeek model, such as R1 or V3)?</td>
+<td>7</td>
+<td>0.73 (3 missed)</td>
+<td>0.73 (3 missed)</td>
+<td>0.60 (4 missed)</td>
+<td>—</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q03</strong> (mention) Which talks mention Cursor, the AI code editor?</td>
+<td>8</td>
+<td>0.55 (5 missed)</td>
+<td>1.00</td>
+<td>0.00 (8 missed)</td>
+<td>0.67 (4 missed)</td>
+<td>0.93 (1 missed)</td>
+</tr>
+<tr>
+<td><strong>q04</strong> (mention) Which videos talk about poker?</td>
+<td>3</td>
+<td>0.50 (2 missed)</td>
+<td>0.80 (1 missed)</td>
+<td>0.00 (3 missed)</td>
+<td>0.50 (2 missed)</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q05</strong> (mention) Which videos discuss prompt injection attacks?</td>
+<td>2</td>
+<td>1.00</td>
+<td>0.67 (1 missed)</td>
+<td>0.67 (1 missed)</td>
+<td>1.00</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q06</strong> (mention) Which talks mention LoRA (low-rank adaptation) fine-tuning?</td>
+<td>5</td>
+<td>0.75 (2 missed)</td>
+<td>0.89 (1 missed)</td>
+<td>0.57 (3 missed)</td>
+<td>0.75 (2 missed)</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q07</strong> (topic) Which video discusses Kubernetes, and in what context does the speaker bring it up?</td>
+<td>1</td>
+<td>0.75</td>
+<td>0.75</td>
+<td>0.75</td>
+<td>1.00</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q08</strong> (mention) Which videos mention Notion, the company or its product?</td>
+<td>2</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.67 (1 missed)</td>
+<td>1.00</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q09</strong> (mention) Which talks mention StarCraft?</td>
+<td>3</td>
+<td>0.80 (1 missed)</td>
+<td>1.00</td>
+<td>0.50 (2 missed)</td>
+<td>0.80 (1 missed)</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q10</strong> (mention) Which videos mention Hugging Face?</td>
+<td>5</td>
+<td>0.73 (2 wrong, 1 missed)</td>
+<td>0.91 (1 wrong)</td>
+<td>0.57 (3 missed)</td>
+<td>0.33 (4 missed)</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q11</strong> (mention) Which speakers mention Kaggle?</td>
+<td>2</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.00 (2 missed)</td>
+<td>1.00</td>
+<td>0.67 (1 missed)</td>
+</tr>
+<tr>
+<td><strong>q12</strong> (mention) In which videos is GRPO (the RL algorithm) mentioned?</td>
+<td>4</td>
+<td>0.86 (1 missed)</td>
+<td>0.86 (1 missed)</td>
+<td>0.00 (4 missed)</td>
+<td>0.86 (1 missed)</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q13</strong> (topic) Show me the moments where speakers talk about improving RAG (retrieval-augmented generation): better or multimodal retrieval, or evaluating retrieval quality.</td>
+<td>4</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.80 (1 missed)</td>
+<td>1.00</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q14</strong> (topic) Which talks explain reward models or reward functions in RL post-training, and what do they say about them?</td>
+<td>4</td>
+<td>1.00</td>
+<td>0.88</td>
+<td>0.50</td>
+<td>0.88</td>
+<td>0.82 (1 wrong)</td>
+</tr>
+<tr>
+<td><strong>q15</strong> (topic) Where in the library is Mixture of Experts (MoE) explained, and how does each speaker describe it?</td>
+<td>4</td>
+<td>0.55 (1 missed)</td>
+<td>0.62</td>
+<td>0.33 (2 missed)</td>
+<td>0.62</td>
+<td>0.62</td>
+</tr>
+<tr>
+<td><strong>q16</strong> (topic) Which speakers refer to Rich Sutton's 'bitter lesson', and how do they use it?</td>
+<td>3</td>
+<td>1.00</td>
+<td>0.73 (1 missed)</td>
+<td>0.73 (1 missed)</td>
+<td>1.00</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q17</strong> (mention) Which talks discuss vector databases or vector stores?</td>
+<td>4</td>
+<td>0.75 (1 wrong, 1 missed)</td>
+<td>0.75 (1 wrong, 1 missed)</td>
+<td>0.40 (3 missed)</td>
+<td>0.75 (1 wrong, 1 missed)</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q18</strong> (topic) Which talks cover guardrails for AI agents, and what kinds of guardrails do they describe?</td>
+<td>3</td>
+<td>0.73 (1 missed)</td>
+<td>0.73 (1 missed)</td>
+<td>0.42 (2 missed)</td>
+<td>0.93 (1 wrong)</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q19</strong> (topic) Which talks discuss scaling laws?</td>
+<td>2</td>
+<td>0.75 (4 wrong)</td>
+<td>1.00</td>
+<td>0.58 (1 missed)</td>
+<td>0.72 (5 wrong)</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q20</strong> (topic) Which speakers mention self-driving cars or autonomous vehicles, and in what connection?</td>
+<td>2</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.75</td>
+<td>1.00</td>
+<td>0.75</td>
+</tr>
+<tr>
+<td><strong>q21</strong> (synthesis) Compare how Noam Brown and Oriol Vinyals talk about self-play: what did it achieve, and where does it break down?</td>
+<td>2</td>
+<td>0.82</td>
+<td>0.47</td>
+<td>0.65</td>
+<td>0.82</td>
+<td>0.65</td>
+</tr>
+<tr>
+<td><strong>q22</strong> (synthesis) How many talks in the library come from the UC Berkeley Agentic AI MOOC (CS294-196), and who are the speakers?</td>
+<td>11</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.54 (6 missed)</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q23</strong> (synthesis) Which talks are given by Microsoft speakers, and which Microsoft products do they demonstrate?</td>
+<td>2</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q24</strong> (negative) Which videos mention Sam Altman?</td>
+<td>0</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q25</strong> (mention) Which videos talk about using an LLM as a judge for evaluation?</td>
+<td>6</td>
+<td>0.73 (1 wrong, 2 missed)</td>
+<td>0.80 (2 missed)</td>
+<td>0.29 (5 missed)</td>
+<td>0.73 (1 wrong, 2 missed)</td>
+<td>0.91 (1 missed)</td>
+</tr>
+<tr>
+<td><strong>q26</strong> (library) Summarize the top themes across both event series in the library (the AI Engineer workshops and the UC Berkeley Agentic AI MOOC lectures). What do the two series have in common, and how do they differ?</td>
+<td>0</td>
+<td>1.00</td>
+<td>0.80</td>
+<td>0.80</td>
+<td>0.40</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>q27</strong> (library) Which of these AI topics is talked about the most across the whole library: agents, evaluation, RAG, fine-tuning/RL, or MCP? Rank them and say roughly how concentrated each one is.</td>
+<td>0</td>
+<td>0.25</td>
+<td>0.50</td>
+<td>0.25</td>
+<td>0.25</td>
+<td>0.75</td>
+</tr>
+<tr>
+<td><strong>q28</strong> (library) Which model family is named most often across all the talks: GPT/ChatGPT, Gemini, Llama, Claude or DeepSeek? Give the ranking.</td>
+<td>0</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.33</td>
+<td>—</td>
+<td>1.00</td>
+</tr>
+</tbody>
+</table>
+<h2 id="runs">Runs<a class="headerlink" href="#runs" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Rate limiting</strong>: token bucket per provider for requests and for tokens per minute, configured or learned from 429 headers.</li>
-<li><strong>Concurrency</strong>: semaphore per provider.</li>
-<li><strong>Retries</strong>: exponential backoff with jitter on 429, 5xx, and transport errors; idempotent by construction since all calls are pure.</li>
-<li><strong>Batching</strong>: embedders batch to the provider's maximum; ASR batches chunks when the endpoint allows.</li>
-<li><strong>Streaming</strong>: SSE and chunked parsers normalized to <code>LlmEvent { Token, ToolCall, Usage, Done }</code>.</li>
-<li><strong>Cost accounting</strong>: every call records tokens, images, seconds of media, latency, and computed cost into a <code>Provenance</code> row. Costs come from the adapter's pricing table, overridable in config.</li>
-<li><strong>Prompt registry</strong>: prompts are versioned assets in <code>vi-providers/prompts/*.md</code> with a hash; the hash is part of every cache key and Provenance row. Python and JS can register overrides at runtime.</li>
-<li><strong>Structured output</strong>: operators that need JSON request it via <code>supports_json_schema</code> when available and fall back to instruction-plus-repair otherwise.</li>
-<li><strong>Redaction</strong>: keys never appear in logs, errors, or Provenance.</li>
+<li><strong>VideoIndex agent (claude-sonnet-5)</strong>: <code>/data/videoindex/eval/runs/corpus/corpus-vi-agent-sonnet.json</code> — total $6.81, judge ≈ $1.07; {"benchmark": "corpus", "system": "videoindex", "policy": "agent", "model": null, "budget_usd": 1.0, "budget_tokens": 200000, "budget_secs": 300, "max_tool_calls": 12, "max_answer_tokens": 4000, "vi_version": "vi 0.1.0", "started": "2026-09-16T17:05:59Z"}</li>
+<li><strong>VideoIndex agent (gemini-3.8-flash)</strong>: <code>/data/videoindex/eval/runs/corpus/corpus-vi-agent-gemini.json</code> — total $3.61, judge ≈ $0.97; {"benchmark": "corpus", "system": "videoindex", "policy": "agent", "model": "gemini-3.8-flash", "budget_usd": 1.0, "budget_tokens": 200000, "budget_secs": 300, "max_tool_calls": 12, "max_answer_tokens": 4000, "vi_version": "vi 0.1.0", "started": "2026-09-16T17:13:58Z"}</li>
+<li><strong>VideoIndex retrieval-only (claude-sonnet-5)</strong>: <code>/data/videoindex/eval/runs/corpus/corpus-vi-retrieval-only.json</code> — total $1.25, judge ≈ $0.81; {"benchmark": "corpus", "system": "videoindex", "policy": "retrieval-only", "model": null, "budget_usd": 1.0, "budget_tokens": 200000, "budget_secs": 300, "max_tool_calls": 12, "max_answer_tokens": 4000, "vi_version": "vi 0.1.0", "started": "2026-09-16T17:11:31Z"}</li>
+<li><strong>VideoIndex agent (claude-sonnet-5, 1,500-token answer cap)</strong>: <code>/data/videoindex/eval/runs/corpus/corpus-vi-agent-sonnet-cap1500.json</code> — total $6.93, judge ≈ $0.86; {"benchmark": "corpus", "system": "videoindex", "policy": "agent", "model": null, "budget_usd": 1.0, "budget_tokens": 200000, "budget_secs": 300, "max_tool_calls": 12, "vi_version": "vi 0.1.0", "started": "2026-09-16T16:51:30Z", "max_answer_tokens": 1500}</li>
+<li><strong>Gemini agentic video (gemini-3.8-flash, 3×10 videos + merge)</strong>: <code>/data/videoindex/eval/runs/corpus/corpus-gemini-agentic.json</code> — total $11.37, judge ≈ $1.29; sequential-sum latency p50 100 s; {"benchmark": "corpus", "system": "gemini", "policy": "gemini-agentic-mapreduce", "model": "gemini-3.8-flash", "thinking": null, "batch_size": 10, "batches": 3, "price_in": 0.75, "price_out": 3.75, "started": "2026-09-16T17:06:44Z"}</li>
 </ul>
-<h2 id="ab-evaluation-support">A/B evaluation support<a class="headerlink" href="#ab-evaluation-support" title="Permanent link">&para;</a></h2>
-<p>Because Descriptions and Embeddings carry Provenance, several providers' outputs coexist in one Index. A query can be pinned to a Provenance filter ("only Descriptions from run X") so two configurations are compared over identical retrieval inputs. The harness in <a href="../08-evaluation/">08-evaluation</a> uses this to separate "the VLM described better" from "the agent looked in the right place".</p>
-<h2 id="local-versus-remote-decision-guide">Local versus remote decision guide<a class="headerlink" href="#local-versus-remote-decision-guide" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Capability</th>
-<th>Default</th>
-<th>Why</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>VAD</td>
-<td>local</td>
-<td>Tiny model, runs everywhere</td>
-</tr>
-<tr>
-<td>Image embeddings</td>
-<td>local</td>
-<td>SigLIP on CPU does 20 to 50 images/s; avoids per-image API cost for tens of thousands of frames</td>
-</tr>
-<tr>
-<td>Text embeddings</td>
-<td>local</td>
-<td>Small models are good enough for retrieval; remote is optional</td>
-</tr>
-<tr>
-<td>OCR</td>
-<td>local by default, VLM for hard cases</td>
-<td>RapidOCR is fast; VLM OCR is better on stylized text</td>
-</tr>
-<tr>
-<td>ASR</td>
-<td>remote or local server</td>
-<td>Whisper-large quality matters; run it under vLLM or whisper.cpp on the GPU box if one exists</td>
-</tr>
-<tr>
-<td>VLM describe</td>
-<td>remote</td>
-<td>Frontier quality per dollar; open models via vLLM for A/B</td>
-</tr>
-<tr>
-<td>Agent LLM</td>
-<td>remote</td>
-<td>Tool use quality dominates answer accuracy</td>
-</tr>
-</tbody>
-</table>
+<p>The ground truth for mention questions comes from the index's own ASR transcript and OCR text, so it inherits their errors (the set notes the known ones, such as 'Laura' for LoRA). A system that hears a mention the transcript missed is scored as wrong; the per-question table and the judge assessments in the run files are the place to check such cases.</p>
 
 
 

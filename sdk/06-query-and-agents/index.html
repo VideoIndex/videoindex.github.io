@@ -932,6 +932,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../results/corpus-2026-09-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Library-wide questions (corpus set)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../results/lvbench-f0.25-2026-09-13/" class="md-nav__link">
         
   
@@ -1289,6 +1317,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>The default policy is a tool-using LLM: it receives the question, the retrieval hits, the observations so far, and the remaining budget, and picks a tool call or answers. Python and JS can supply their own <code>Policy</code> through the bridge. Fixed strategies such as "always view the top-3 scenes at 1 fps then answer" are also policies and are useful as eval baselines.</p>
+<p>The reasoning model is the <code>agent_llm</code> role (<code>agent_vlm</code> when bound) unless the caller picks one per question: <code>ask</code> takes <code>model</code>, a <code>[providers.*]</code> name or its model id (<code>vi ask --model gemini-3.8-flash</code>, <code>idx.ask(q, model=...)</code>, <code>{"model": ...}</code> over HTTP; <code>GET /v1/models</code> lists the chat providers and marks the default). The tools keep their own roles, so switching the model changes who reasons, not how the index is read. Gemini 3 function calls carry a thought signature that must return with the call in later turns; the tool call keeps it as an opaque <code>signature</code> and the Gemini adapter echoes it.</p>
 <h3 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h3>
 <p>Every tool is read-only against the index and the media. Tools are exposed identically to the internal LLM, to Python/JS callers, and over MCP.</p>
 <table>
@@ -1360,7 +1389,7 @@
 <p><code>view</code> and <code>describe</code> differ in who does the looking. <code>view</code> hands pixels to the loop's own multimodal LLM; <code>describe</code> calls the configured VLM provider and persists the result. Policies choose based on the loop model's capabilities and cost.</p>
 <p>Tool arguments are validated against JSON Schema; <code>t0 &lt; t1</code>, windows are clamped to configured maxima (default 120 s per <code>view</code>), and fps × duration is capped by the remaining token budget.</p>
 <h3 id="budgets">Budgets<a class="headerlink" href="#budgets" title="Permanent link">&para;</a></h3>
-<p>An <code>ask</code> carries <code>Budget { max_tokens, max_cost_usd, max_wallclock, max_tool_calls }</code>. The loop checks the budget before each tool call and passes the remainder to the policy so it can plan. On exhaustion the loop answers with what it has and sets <code>partial: true</code> with the reason.</p>
+<p>An <code>ask</code> carries <code>Budget { max_tokens, max_cost_usd, max_wallclock, max_tool_calls, max_answer_tokens }</code>; the last one caps the output of each model turn (4,000 by default; answers that list many videos need more than a single-video answer). The loop checks the budget before each tool call and passes the remainder to the policy so it can plan. On exhaustion the loop answers with what it has and sets <code>partial: true</code> with the reason.</p>
 <h3 id="coarse-to-fine-in-practice">Coarse to fine in practice<a class="headerlink" href="#coarse-to-fine-in-practice" title="Permanent link">&para;</a></h3>
 <p>For "When does the speaker first mention retrieval evaluation?" the default policy typically runs: <code>search</code> → answer, one LLM call, no decode. For "What color is the shirt of the person who asks the second question?" it runs: <code>search</code> for question-and-answer segments → <code>view</code> the candidate at 1 fps → answer. For "Summarize the workshop" it runs: <code>timeline</code> → <code>get_descriptions</code> per chapter → answer.</p>
 <h2 id="answers-and-citations">Answers and citations<a class="headerlink" href="#answers-and-citations" title="Permanent link">&para;</a></h2>

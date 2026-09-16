@@ -14,7 +14,7 @@
         <link rel="prev" href="../08-evaluation/">
       
       
-        <link rel="next" href="../../results/lvbench-f0.25-2026-09-13/">
+        <link rel="next" href="../../results/corpus-2026-09-16/">
       
       
         
@@ -854,6 +854,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../results/corpus-2026-09-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Library-wide questions (corpus set)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../results/lvbench-f0.25-2026-09-13/" class="md-nav__link">
         
   
@@ -1201,7 +1229,12 @@ vi doctor                                       checks ffmpeg, hardware decode, 
 <tr>
 <td>POST</td>
 <td><code>/indexes/{id}/ask</code></td>
-<td>agentic answer; SSE stream of the events in 06</td>
+<td>agentic answer; SSE stream of the events in 06; optional <code>model</code> picks a configured chat provider</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/models</code></td>
+<td>chat providers <code>ask</code> accepts as <code>model</code> (name, adapter, model id, default)</td>
 </tr>
 <tr>
 <td>POST</td>
