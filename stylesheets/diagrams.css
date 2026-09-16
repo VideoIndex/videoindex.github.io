@@ -1,0 +1,134 @@
+/* Mermaid diagrams on the docs site. Material renders each diagram into a closed shadow root,
+   so only inherited custom properties and the .mermaid host element can be styled from here.
+   Palette from the logo kit (vi_internal/brand): navy #0A2347, blue #3186E9, blue-on-dark #5FA7FF,
+   paper #EFF6FF. The zoom dialog is driven by javascripts/diagrams.js. */
+
+/* a little more room for wide diagrams and tables (Material default is 61rem) */
+.md-grid { max-width: 72rem; }
+
+[data-md-color-scheme="default"] {
+  --md-mermaid-font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --md-mermaid-node-bg-color: #ffffff;
+  --md-mermaid-node-fg-color: #3186e9;           /* node stroke */
+  --md-mermaid-label-fg-color: #0a2347;          /* node text */
+  --md-mermaid-label-bg-color: #f7faff;          /* edge-label background, matches the panel */
+  --md-mermaid-edge-color: #3b5580;              /* edges, arrowheads, edge-label text */
+  --md-mermaid-sequence-actor-bg-color: #eff6ff;
+  --md-mermaid-sequence-actor-border-color: #3186e9;
+  --md-mermaid-sequence-actor-fg-color: #0a2347;
+  --md-mermaid-sequence-actor-line-color: rgba(10, 35, 71, 0.28);
+  --md-mermaid-sequence-message-line-color: #3b5580;
+  --md-mermaid-sequence-message-fg-color: #0a2347;
+  --md-mermaid-sequence-loop-bg-color: rgba(49, 134, 233, 0.05);
+  --md-mermaid-sequence-loop-border-color: rgba(49, 134, 233, 0.45);
+  --md-mermaid-sequence-loop-fg-color: #3b5580;
+  --md-mermaid-sequence-number-bg-color: #0a2347;
+  --md-mermaid-sequence-number-fg-color: #ffffff;
+  --vi-diagram-bg: #f7faff;
+  --vi-diagram-border: rgba(10, 35, 71, 0.12);
+  --vi-diagram-cluster-bg: rgba(49, 134, 233, 0.06);
+  --vi-diagram-cluster-border: rgba(10, 35, 71, 0.22);
+  --vi-diagram-hint: rgba(10, 35, 71, 0.55);
+}
+[data-md-color-scheme="slate"] {
+  --md-mermaid-font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --md-mermaid-node-bg-color: #0f2749;
+  --md-mermaid-node-fg-color: #5fa7ff;
+  --md-mermaid-label-fg-color: #e8f0fb;
+  --md-mermaid-label-bg-color: #1c1e2b;
+  --md-mermaid-edge-color: #9db9dc;
+  --md-mermaid-sequence-actor-bg-color: #0f2749;
+  --md-mermaid-sequence-actor-border-color: #5fa7ff;
+  --md-mermaid-sequence-actor-fg-color: #e8f0fb;
+  --md-mermaid-sequence-actor-line-color: rgba(157, 185, 220, 0.35);
+  --md-mermaid-sequence-message-line-color: #9db9dc;
+  --md-mermaid-sequence-message-fg-color: #e8f0fb;
+  --md-mermaid-sequence-loop-bg-color: rgba(95, 167, 255, 0.07);
+  --md-mermaid-sequence-loop-border-color: rgba(95, 167, 255, 0.5);
+  --md-mermaid-sequence-loop-fg-color: #c9d9ee;
+  --md-mermaid-sequence-number-bg-color: #5fa7ff;
+  --md-mermaid-sequence-number-fg-color: #0a2347;
+  --vi-diagram-bg: #1c1e2b;
+  --vi-diagram-border: rgba(255, 255, 255, 0.08);
+  --vi-diagram-cluster-bg: rgba(95, 167, 255, 0.07);
+  --vi-diagram-cluster-border: rgba(95, 167, 255, 0.3);
+  --vi-diagram-hint: rgba(232, 240, 251, 0.6);
+}
+
+/* the diagram panel (the host element; the SVG lives in its shadow root) */
+.md-typeset .mermaid {
+  position: relative;
+  margin: 1.4em 0;
+  padding: 1.2rem 1.2rem 1.4rem;
+  background: var(--vi-diagram-bg);
+  border: 1px solid var(--vi-diagram-border);
+  border-radius: 0.4rem;
+  text-align: center;
+  cursor: zoom-in;
+  /* Material paints subgraph/cluster boxes with these theme-wide colours; rescope them here */
+  --md-default-fg-color--lightest: var(--vi-diagram-cluster-bg);
+  --md-default-fg-color--lighter: var(--vi-diagram-cluster-border);
+}
+.md-typeset .mermaid::after {
+  content: "click to enlarge";
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.35rem;
+  font: 500 0.55rem/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: 0.02em;
+  color: var(--vi-diagram-hint);
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+}
+.md-typeset .mermaid:hover::after,
+.md-typeset .mermaid:focus-visible::after { opacity: 1; }
+.md-typeset .mermaid:focus-visible { outline: 2px solid var(--md-accent-fg-color); outline-offset: 2px; }
+
+/* zoom dialog */
+dialog.vi-zoom {
+  width: min(96vw, 1800px);
+  max-width: none;
+  max-height: 94vh;
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--vi-diagram-border);
+  border-radius: 0.5rem;
+  background: var(--vi-diagram-bg);
+  color: var(--md-typeset-color);
+  overflow: hidden;
+  box-shadow: 0 1.5rem 3rem rgba(6, 26, 54, 0.35);
+  --md-default-fg-color--lightest: var(--vi-diagram-cluster-bg);
+  --md-default-fg-color--lighter: var(--vi-diagram-cluster-border);
+}
+dialog.vi-zoom::backdrop { background: rgba(6, 26, 54, 0.55); backdrop-filter: blur(3px); }
+dialog.vi-zoom .vi-zoom__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0.9rem;
+  border-bottom: 1px solid var(--vi-diagram-border);
+  font: 500 0.6rem/1.4 "IBM Plex Mono", ui-monospace, monospace;
+  color: var(--vi-diagram-hint);
+}
+dialog.vi-zoom .vi-zoom__bar button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 1px solid var(--vi-diagram-border);
+  border-radius: 0.25rem;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+}
+dialog.vi-zoom .vi-zoom__bar button:hover { color: var(--md-accent-fg-color); border-color: var(--md-accent-fg-color); }
+dialog.vi-zoom .vi-zoom__body {
+  overflow: auto;
+  max-height: calc(94vh - 2.6rem);
+  padding: 1.5rem;
+  line-height: normal;
+  text-align: center;
+  cursor: grab;
+}
+dialog.vi-zoom .vi-zoom__body:active { cursor: grabbing; }
+dialog.vi-zoom .vi-zoom__body svg { display: block; margin: 0 auto; height: auto; }
