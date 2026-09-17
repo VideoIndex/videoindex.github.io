@@ -843,7 +843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../results/corpus-2026-09-16/" class="md-nav__link">
+      <a href="../results/corpus-2026-09-17/" class="md-nav__link">
         
   
   
@@ -871,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../results/lvbench-f0.25-2026-09-13/" class="md-nav__link">
+      <a href="../results/lvbench-f0.25-2026-09-17/" class="md-nav__link">
         
   
   
@@ -899,7 +899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../results/minerva-f0.25-2026-09-13/" class="md-nav__link">
+      <a href="../results/minerva-f0.25-2026-09-17/" class="md-nav__link">
         
   
   
@@ -1089,23 +1089,23 @@
 <div class="highlight"><pre><span></span><code><span class="c1"># Rust toolchain, ffmpeg dev libraries, pkg-config, clang</span>
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/videoindex/videoindex<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>videoindex
 cargo<span class="w"> </span>build<span class="w"> </span>--release<span class="w">            </span><span class="c1"># add --features cuda on an NVIDIA machine with CUDA 13 + cuDNN 9</span>
-./target/release/vi<span class="w"> </span>doctor<span class="w">       </span><span class="c1"># machine facts, GPU, models, provider roles</span>
+./target/release/vidx<span class="w"> </span>doctor<span class="w">       </span><span class="c1"># machine facts, GPU, models, provider roles</span>
 </code></pre></div>
 <h2 id="index-a-video">Index a video<a class="headerlink" href="#index-a-video" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>vi<span class="w"> </span>init<span class="w"> </span>./talks.vidx
-vi<span class="w"> </span>index<span class="w"> </span>./talks.vidx<span class="w"> </span>talk.mp4<span class="w"> </span>--policy<span class="w"> </span>coarse_local<span class="w">     </span><span class="c1"># no provider keys needed</span>
-vi<span class="w"> </span>status<span class="w"> </span>./talks.vidx
+<div class="highlight"><pre><span></span><code>vidx<span class="w"> </span>init<span class="w"> </span>./talks.vidx
+vidx<span class="w"> </span>index<span class="w"> </span>./talks.vidx<span class="w"> </span>talk.mp4<span class="w"> </span>--policy<span class="w"> </span>coarse_local<span class="w">     </span><span class="c1"># no provider keys needed</span>
+vidx<span class="w"> </span>status<span class="w"> </span>./talks.vidx
 </code></pre></div>
 <p>With a config that binds <code>asr</code>, <code>ocr</code>, <code>image_embed</code> and <code>text_embed</code> roles (see
 <code>config/gcp-a100.toml</code>), the default <code>auto</code> policy runs the full coarse pass.</p>
 <h2 id="search-and-ask">Search and ask<a class="headerlink" href="#search-and-ask" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>vi<span class="w"> </span>search<span class="w"> </span>./talks.vidx<span class="w"> </span><span class="s2">"regret matching"</span>
-vi<span class="w"> </span>ask<span class="w"> </span>./talks.vidx<span class="w"> </span><span class="s2">"what does the speaker say about regret matching?"</span>
+<div class="highlight"><pre><span></span><code>vidx<span class="w"> </span>search<span class="w"> </span>./talks.vidx<span class="w"> </span><span class="s2">"regret matching"</span>
+vidx<span class="w"> </span>ask<span class="w"> </span>./talks.vidx<span class="w"> </span><span class="s2">"what does the speaker say about regret matching?"</span>
 </code></pre></div>
 <p><code>ask</code> needs an <code>agent_llm</code> role (Anthropic, Gemini or any OpenAI-compatible server) and
 streams an answer with <code>[[cite:VIDEO:T0-T1]]</code> citations.</p>
 <h2 id="serve">Serve<a class="headerlink" href="#serve" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>vi<span class="w"> </span>serve<span class="w"> </span>--bind<span class="w"> </span><span class="m">127</span>.0.0.1:8080<span class="w"> </span>--index-root<span class="w"> </span>./<span class="w"> </span>--api-key<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>openssl<span class="w"> </span>rand<span class="w"> </span>-hex<span class="w"> </span><span class="m">24</span><span class="k">)</span><span class="s2">"</span>
+<div class="highlight"><pre><span></span><code>vidx<span class="w"> </span>serve<span class="w"> </span>--bind<span class="w"> </span><span class="m">127</span>.0.0.1:8080<span class="w"> </span>--index-root<span class="w"> </span>./<span class="w"> </span>--api-key<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>openssl<span class="w"> </span>rand<span class="w"> </span>-hex<span class="w"> </span><span class="m">24</span><span class="k">)</span><span class="s2">"</span>
 curl<span class="w"> </span>-s<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$KEY</span><span class="s2">"</span><span class="w"> </span>localhost:8080/v1/indexes/talks/videos
 </code></pre></div>
 <p>See <a href="../api/">HTTP API and MCP</a>.</p>

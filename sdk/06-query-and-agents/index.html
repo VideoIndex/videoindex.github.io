@@ -934,7 +934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../results/corpus-2026-09-16/" class="md-nav__link">
+      <a href="../../results/corpus-2026-09-17/" class="md-nav__link">
         
   
   
@@ -962,7 +962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../results/lvbench-f0.25-2026-09-13/" class="md-nav__link">
+      <a href="../../results/lvbench-f0.25-2026-09-17/" class="md-nav__link">
         
   
   
@@ -990,7 +990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../results/minerva-f0.25-2026-09-13/" class="md-nav__link">
+      <a href="../../results/minerva-f0.25-2026-09-17/" class="md-nav__link">
         
   
   
@@ -1319,7 +1319,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>The default policy is a tool-using LLM: it receives the question, the retrieval hits, the observations so far, and the remaining budget, and picks a tool call or answers. Python and JS can supply their own <code>Policy</code> through the bridge. Fixed strategies such as "always view the top-3 scenes at 1 fps then answer" are also policies and are useful as eval baselines.</p>
-<p>The reasoning model is the <code>agent_llm</code> role (<code>agent_vlm</code> when bound) unless the caller picks one per question: <code>ask</code> takes <code>model</code>, a <code>[providers.*]</code> name or its model id (<code>vi ask --model gemini-3.8-flash</code>, <code>idx.ask(q, model=...)</code>, <code>{"model": ...}</code> over HTTP; <code>GET /v1/models</code> lists the chat providers and marks the default). The tools keep their own roles, so switching the model changes who reasons, not how the index is read. Gemini 3 function calls carry a thought signature that must return with the call in later turns; the tool call keeps it as an opaque <code>signature</code> and the Gemini adapter echoes it.</p>
+<p>The reasoning model is the <code>agent_llm</code> role (<code>agent_vlm</code> when bound) unless the caller picks one per question: <code>ask</code> takes <code>model</code>, a <code>[providers.*]</code> name or its model id (<code>vidx ask --model gemini-3.8-flash</code>, <code>idx.ask(q, model=...)</code>, <code>{"model": ...}</code> over HTTP; <code>GET /v1/models</code> lists the chat providers and marks the default). The tools keep their own roles, so switching the model changes who reasons, not how the index is read. Gemini 3 function calls carry a thought signature that must return with the call in later turns; the tool call keeps it as an opaque <code>signature</code> and the Gemini adapter echoes it.</p>
 <h3 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h3>
 <p>Every tool is read-only against the index and the media. Tools are exposed identically to the internal LLM, to Python/JS callers, and over MCP.</p>
 <table>
@@ -1334,9 +1334,33 @@
 <tbody>
 <tr>
 <td><code>search</code></td>
-<td>query, filters, k</td>
-<td>ranked hits with evidence</td>
+<td>query, filters, k, per_video_k</td>
+<td>ranked hits with evidence, at most <code>per_video_k</code> per video (default 3 when more than one video is in scope)</td>
 <td>cheap, cached</td>
+</tr>
+<tr>
+<td><code>find_mentions</code></td>
+<td>terms[], prefix?, kinds?, video_ids?, per_video</td>
+<td>exhaustive FTS scan: per video, hit counts per kind and the earliest hits with timestamps and snippets; the tool for "which videos mention X"</td>
+<td>cheap, deterministic</td>
+</tr>
+<tr>
+<td><code>count_mentions</code></td>
+<td>terms[], group_by (library, video, channel), prefix?, kinds?, video_ids?</td>
+<td>rows containing each term per kind, videos with a hit, optional per-video or per-channel breakdown; the tool for "discussed most", rankings, totals</td>
+<td>cheap, deterministic</td>
+</tr>
+<tr>
+<td><code>library_stats</code></td>
+<td>—</td>
+<td>video count, total duration, channels with counts, every video's title, channel, duration and date</td>
+<td>cheap</td>
+</tr>
+<tr>
+<td><code>list_videos</code></td>
+<td>—</td>
+<td>ids, titles, durations</td>
+<td>cheap</td>
 </tr>
 <tr>
 <td><code>timeline</code></td>
@@ -1388,6 +1412,7 @@
 </tr>
 </tbody>
 </table>
+<p><code>search</code> samples: it ranks and truncates, so it cannot prove that no other video mentions a term. <code>find_mentions</code> and <code>count_mentions</code> are one FTS5 phrase query per term and kind over the whole index (no embedding call, sub-second on a 30-video library), grouped by video in SQL. Counts are rows containing the term: transcript segments, distinct on-screen lines per minute, descriptions. They inherit ASR spelling, so the agent is told to pass variants as separate terms (<code>LoRA</code>, <code>Laura</code>) and to quote counts as approximate. The system prompt routes "which videos", "find all", "how many" and "most discussed" questions to these tools before <code>search</code>; see <code>vi_internal/docs/planning/EVAL-IMPROVEMENTS.md</code> (workstreams A and B) for the evaluation that motivated them.</p>
 <p><code>view</code> and <code>describe</code> differ in who does the looking. <code>view</code> hands pixels to the loop's own multimodal LLM; <code>describe</code> calls the configured VLM provider and persists the result. Policies choose based on the loop model's capabilities and cost.</p>
 <p>Tool arguments are validated against JSON Schema; <code>t0 &lt; t1</code>, windows are clamped to configured maxima (default 120 s per <code>view</code>), and fps × duration is capped by the remaining token budget.</p>
 <h3 id="budgets">Budgets<a class="headerlink" href="#budgets" title="Permanent link">&para;</a></h3>
@@ -1411,7 +1436,7 @@
 <h2 id="conversation-state">Conversation state<a class="headerlink" href="#conversation-state" title="Permanent link">&para;</a></h2>
 <p><code>ask</code> accepts an optional <code>session_id</code>. Sessions store prior turns and prior observations so follow-up questions reuse <code>view</code> results without re-decoding. Sessions live in the Index's SQLite under a <code>sessions</code> table with a TTL, or in memory for library use.</p>
 <h2 id="mcp-server">MCP server<a class="headerlink" href="#mcp-server" title="Permanent link">&para;</a></h2>
-<p><code>vi-server</code> exposes an MCP server with the tools above, plus <code>list_videos</code> and <code>index_state</code>. An external agent such as Claude Code or a LangGraph graph can therefore run its own loop over a VideoIndex, which is also how VideoIndex is compared against other agent strategies in evaluation. Resources expose thumbnails and frame grids by blob URI.</p>
+<p><code>vi-server</code> exposes an MCP server with the tools above, plus <code>index_state</code> and <code>ask</code>. An external agent such as Claude Code or a LangGraph graph can therefore run its own loop over a VideoIndex, which is also how VideoIndex is compared against other agent strategies in evaluation. Resources expose thumbnails and frame grids by blob URI.</p>
 <h2 id="performance-targets">Performance targets<a class="headerlink" href="#performance-targets" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

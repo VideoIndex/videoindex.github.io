@@ -14,7 +14,7 @@
         <link rel="prev" href="../08-evaluation/">
       
       
-        <link rel="next" href="../../results/corpus-2026-09-16/">
+        <link rel="next" href="../../results/corpus-2026-09-17/">
       
       
         
@@ -856,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../results/corpus-2026-09-16/" class="md-nav__link">
+      <a href="../../results/corpus-2026-09-17/" class="md-nav__link">
         
   
   
@@ -884,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../results/lvbench-f0.25-2026-09-13/" class="md-nav__link">
+      <a href="../../results/lvbench-f0.25-2026-09-17/" class="md-nav__link">
         
   
   
@@ -912,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../results/minerva-f0.25-2026-09-13/" class="md-nav__link">
+      <a href="../../results/minerva-f0.25-2026-09-17/" class="md-nav__link">
         
   
   
@@ -1174,17 +1174,17 @@
 </code></pre></div>
 <p>Packaging: <code>npm install @videoindex/core</code> with optional platform packages holding the prebuilt <code>.node</code> binary, the napi-rs standard layout. TypeScript types shipped.</p>
 <h2 id="cli">CLI<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>vi init  &lt;index-dir&gt;                            create an index
-vi acquire &lt;source&gt;... [--out DIR]              download/copy sources into the media cache (yt-dlp for video sites)
-vi index &lt;index-dir&gt; &lt;source&gt;... [--policy P] [--budget ...]   acquire + index, streams progress
-vi search &lt;index-dir&gt; "&lt;query&gt;" [--k N] [--json]
-vi ask   &lt;index-dir&gt; "&lt;question&gt;" [--budget ...] [--json]      streams answer with [HH:MM:SS] citations
-vi view  &lt;index-dir&gt; &lt;video-id&gt; --t0 .. --t1 .. --fps .. -o grid.png
-vi timeline &lt;index-dir&gt; &lt;video-id&gt;
-vi status &lt;index-dir&gt;                            videos, states, sizes, costs
-vi serve [--index-root DIR] [--bind 0.0.0.0:8080] [--mcp]
-vi eval  &lt;config.toml&gt;                          runs the eval harness (shells to Python in eval/)
-vi doctor                                       checks ffmpeg, hardware decode, yt-dlp, ONNX providers, GPU
+<div class="highlight"><pre><span></span><code>vidx init  &lt;index-dir&gt;                            create an index
+vidx acquire &lt;source&gt;... [--out DIR]              download/copy sources into the media cache (yt-dlp for video sites)
+vidx index &lt;index-dir&gt; &lt;source&gt;... [--policy P] [--budget ...]   acquire + index, streams progress
+vidx search &lt;index-dir&gt; "&lt;query&gt;" [--k N] [--json]
+vidx ask   &lt;index-dir&gt; "&lt;question&gt;" [--budget ...] [--json]      streams answer with [HH:MM:SS] citations
+vidx view  &lt;index-dir&gt; &lt;video-id&gt; --t0 .. --t1 .. --fps .. -o grid.png
+vidx timeline &lt;index-dir&gt; &lt;video-id&gt;
+vidx status &lt;index-dir&gt;                            videos, states, sizes, costs
+vidx serve [--index-root DIR] [--bind 0.0.0.0:8080] [--mcp]
+vidx eval  &lt;config.toml&gt;                          runs the eval harness (shells to Python in eval/)
+vidx doctor                                       checks ffmpeg, hardware decode, yt-dlp, ONNX providers, GPU
 </code></pre></div>
 <p>All commands take <code>--config videoindex.toml</code> and <code>--json</code> for machine-readable output. Exit codes are stable.</p>
 <h2 id="server-http">Server (HTTP)<a class="headerlink" href="#server-http" title="Permanent link">&para;</a></h2>
@@ -1271,7 +1271,7 @@ vi doctor                                       checks ffmpeg, hardware decode, 
 </tbody>
 </table>
 <p>Auth: bearer API keys (<code>Authorization: Bearer &lt;key&gt;</code> or <code>X-API-Key</code>). Hosted mode adds tenants, quotas per key, and usage records. Self-hosted mode can run with auth disabled on localhost.</p>
-<p>Status (2026-09-12): implemented in <code>vi-server</code> and started with <code>vi serve</code>. Indexes live under <code>server.index_root</code> as <code>&lt;id&gt;.vidx</code> and open lazily; <code>POST /v1/indexes</code> creates one. Blobs are addressed per index (<code>/v1/indexes/{id}/blobs/{key}</code>), MCP per index (<code>/v1/indexes/{id}/mcp</code>) or over <code>server.default_index</code> (<code>/v1/mcp</code>). <code>ask</code> and job progress stream as SSE when the request carries <code>Accept: text/event-stream</code> and return JSON otherwise. <code>server.api_keys</code> turns authentication on; <code>server.daily_cost_cap_usd</code> caps each key's provider spend per UTC day (429 past the cap), which is how the public demo key is bounded. <code>/metrics</code> is Prometheus text produced without a metrics crate. The MCP endpoint is the stateless streamable-HTTP profile: JSON-RPC 2.0 over POST, notifications answered with 202, no server-initiated stream (GET returns 405); tools are the agent's tools plus <code>index_state</code> and <code>ask</code>.</p>
+<p>Status (2026-09-12): implemented in <code>vi-server</code> and started with <code>vidx serve</code>. Indexes live under <code>server.index_root</code> as <code>&lt;id&gt;.vidx</code> and open lazily; <code>POST /v1/indexes</code> creates one. Blobs are addressed per index (<code>/v1/indexes/{id}/blobs/{key}</code>), MCP per index (<code>/v1/indexes/{id}/mcp</code>) or over <code>server.default_index</code> (<code>/v1/mcp</code>). <code>ask</code> and job progress stream as SSE when the request carries <code>Accept: text/event-stream</code> and return JSON otherwise. <code>server.api_keys</code> turns authentication on; <code>server.daily_cost_cap_usd</code> caps each key's provider spend per UTC day (429 past the cap), which is how the public demo key is bounded. <code>/metrics</code> is Prometheus text produced without a metrics crate. The MCP endpoint is the stateless streamable-HTTP profile: JSON-RPC 2.0 over POST, notifications answered with 202, no server-initiated stream (GET returns 405); tools are the agent's tools plus <code>index_state</code> and <code>ask</code>.</p>
 <h2 id="configuration-file">Configuration file<a class="headerlink" href="#configuration-file" title="Permanent link">&para;</a></h2>
 <p>One <code>videoindex.toml</code> shared by all surfaces: providers and roles as in <a href="../07-model-providers/">07-model-providers</a>, policies as in <a href="../05-indexing-pipeline/">05-indexing-pipeline</a>, storage backend, media cache directory, decode worker limits, server bind and auth. Environment variables override with a <code>VI_</code> prefix.</p>
 <h2 id="stability-policy">Stability policy<a class="headerlink" href="#stability-policy" title="Permanent link">&para;</a></h2>
@@ -1280,6 +1280,7 @@ vi doctor                                       checks ffmpeg, hardware decode, 
 <li>The index schema version is independent of the package version; readers refuse newer schemas and migrate older ones.</li>
 <li>Event types in <code>ask</code> streams are additive; consumers must ignore unknown types.</li>
 <li>The MCP tool set and the HTTP API are versioned under <code>/v1</code>.</li>
+<li>The command-line tool is <code>vidx</code>. It was called <code>vi</code> until 2026-09-17 and was renamed so it no longer shadows the <code>vi</code> editor on machines that have both on <code>PATH</code>; subcommands, flags and exit codes did not change.</li>
 </ul>
 
 
