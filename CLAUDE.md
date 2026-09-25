@@ -13,5 +13,7 @@ rsync -a --delete --exclude .git --exclude LICENSE --exclude README.md --exclude
 cd ../videoindex.github.io && touch .nojekyll && git add -A && git commit -m "docs: rebuild" && git push
 ```
 
+After publishing, record the new commit in `vi_internal/deployment_snapshot.md` (hostnames table).
+
 Public, developer-oriented content only: no deployment, machine or planning material (that is in
 the private `vi_internal` repo).
